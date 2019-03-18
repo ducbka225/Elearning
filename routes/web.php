@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route:: get('index', [
+	'as'=>'trang-chu',
+	'uses'=>'PageController@getIndex'
+
+]);
+
+//Đăng ký tài khoản
+Route::get('signup', 'PageController@getSignup');
+Route::post('signup', 'PageController@postSignup');
+
+//Đăng Nhập
+Route::get('login', 'UserController@getLogin');
+Route::post('login', 'UserController@postLogin');

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'Name', 'Email', 'Password','Role'
     ];
 
     /**
@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'Password', 'remember_token',
     ];
 
     /**
@@ -36,4 +36,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $table = "users";
+
+    public function comment(){
+        return $this->hasMany('App\Comment', 'ID_User', 'ID');
+    }
+
+    public function user_course_comment(){
+        return $this->hasMany('App\User_Course_Comment', 'ID_User', 'ID');
+    }
+
+    public function re_comment(){
+        return $this->hasMany('App\Re_Comment', 'ID_User', 'ID');
+    }
+
+    public function register(){
+        return $this->hasMany('App\Register', 'ID_User', 'ID');
+    }
+
 }
