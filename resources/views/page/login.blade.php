@@ -46,7 +46,7 @@
 								<input name="submit" value="Đăng Nhập" id="send" type="submit">
 							</div>
 							<div class="col-sm-12 col-md-12">
-								<span>Bạn chưa có tài khoản? <a href="#">Tạo tài khoản</a></span>
+								<span>Bạn chưa có tài khoản? <a href="signup">Tạo tài khoản</a></span>
 							</div>
 						</form>
 					</div>

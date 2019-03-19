@@ -35,8 +35,8 @@ class UserController extends Controller
             ]
         );
         
-        $user = array('Email'=>$request->email, 'Password'=>$request->password, 'Role'=>$request->role);
-        if(Auth::attemp($user)){
+        $user = array('email'=>$request->email, 'password'=>$request->password, 'role'=>$request->role);
+        if(Auth::attempt($user)){
             return redirect('index');
         }
 
@@ -45,5 +45,10 @@ class UserController extends Controller
         }
 
         
+    }
+
+    public function getLogout(){
+        Auth::logout();
+        return redirect('index');
     }
 }

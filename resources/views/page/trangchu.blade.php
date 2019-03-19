@@ -54,20 +54,21 @@
 		<div class="container">
 			<div class="row">
 				<div class="tittle">
-					<h2>Most Viewed Courses</h2>
+					<h2>Khóa học hot nhất</h2>
 				</div>
 				<div class="row">
+					@foreach($hotcourse as $hc)
 					<div class="col-xs-12 col-sm-3 col-md-3">
 						<!-- .viewed-courses-box -->
 						<div class="viewed-courses-box">
 							<div class="viewed-courses-img">
-								<img src="source/assets/img/courses-img1.jpg" alt="coureses-img1">
+								<img src="source/assets/img/{{$hc->course_avatar}}" alt="coureses-img1">
 							</div>
 							<div class="viewed-courses-text">
 								<a href="classroom-presence.html">
-									<h6>The complete Digital marketing course 2017-2018</h6>
+									<h6>{{$hc->title}}</h6>
 								</a>
-								<p>By : Adluf Gulf</p>
+								<p>Bởi : {{$hc->teacher->name}}</p>
 								<div class="star">
 									<i class="fa fa-star" aria-hidden="true"></i>
 									<i class="fa fa-star" aria-hidden="true"></i>
@@ -76,187 +77,13 @@
 									<i class="fa fa-star-o" aria-hidden="true"></i>
 								</div>
 								<div class="price">
-									$120 <span>$300</span>
+									{{$hc->price}} <span>$300</span>
 								</div>
 							</div>
 						</div>
 						<!-- /.viewed-courses-box -->
 					</div>
-					<div class="col-xs-12 col-sm-3 col-md-3">
-						<!-- .viewed-courses-box -->
-						<div class="viewed-courses-box">
-							<div class="viewed-courses-img">
-								<img src="source/assets/img/courses-img2.jpg" alt="coureses-img2">
-							</div>
-							<div class="viewed-courses-text">
-								<a href="classroom-presence.html">
-									<h6>The complete Digital marketing course 2017-2018</h6>
-								</a>
-								<p>By : Adluf Gulf</p>
-								<div class="star">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-								</div>
-								<div class="price">
-									$120 <span>$300</span>
-								</div>
-							</div>
-						</div>
-						<!-- /.viewed-courses-box -->
-					</div>
-					<div class="col-xs-12 col-sm-3 col-md-3">
-						<!-- .viewed-courses-box -->
-						<div class="viewed-courses-box">
-							<div class="viewed-courses-img">
-								<img src="source/assets/img/courses-img3.jpg" alt="coureses-img3">
-							</div>
-							<div class="viewed-courses-text">
-								<a href="classroom-presence.html">
-									<h6>The complete Digital marketing course 2017-2018</h6>
-								</a>
-								<p>By : Adluf Gulf</p>
-								<div class="star">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-								</div>
-								<div class="price">
-									$120 <span>$300</span>
-								</div>
-							</div>
-						</div>
-						<!-- /.viewed-courses-box -->
-					</div>
-					<div class="col-xs-12 col-sm-3 col-md-3">
-						<!-- .viewed-courses-box -->
-						<div class="viewed-courses-box">
-							<div class="viewed-courses-img">
-								<img src="source/assets/img/courses-img4.jpg" alt="coureses-img4">
-							</div>
-							<div class="viewed-courses-text">
-								<a href="classroom-presence.html">
-									<h6>The complete Digital marketing course 2017-2018</h6>
-								</a>
-								<p>By : Adluf Gulf</p>
-								<div class="star">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-								</div>
-								<div class="price">
-									$120 <span>$300</span>
-								</div>
-							</div>
-						</div>
-						<!-- /.viewed-courses-box -->
-					</div>
-					<div class="col-xs-12 col-sm-3 col-md-3">
-						<!-- .viewed-courses-box -->
-						<div class="viewed-courses-box">
-							<div class="viewed-courses-img">
-								<img src="source/assets/img/courses-img5.jpg" alt="coureses-img5">
-							</div>
-							<div class="viewed-courses-text">
-								<a href="classroom-presence.html">
-									<h6>The complete Digital marketing course 2017-2018</h6>
-								</a>
-								<p>By : Adluf Gulf</p>
-								<div class="star">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-								</div>
-								<div class="price">
-									$120 <span>$300</span>
-								</div>
-							</div>
-						</div>
-						<!-- /.viewed-courses-box -->
-					</div>
-					<div class="col-xs-12 col-sm-3 col-md-3">
-						<!-- .viewed-courses-box -->
-						<div class="viewed-courses-box">
-							<div class="viewed-courses-img">
-								<img src="source/assets/img/courses-img6.jpg" alt="coureses-img6">
-							</div>
-							<div class="viewed-courses-text">
-								<a href="classroom-presence.html">
-									<h6>The complete Digital marketing course 2017-2018</h6>
-								</a>
-								<p>By : Adluf Gulf</p>
-								<div class="star">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-								</div>
-								<div class="price">
-									$120 <span>$300</span>
-								</div>
-							</div>
-						</div>
-						<!-- /.viewed-courses-box -->
-					</div>
-					<div class="col-xs-12 col-sm-3 col-md-3">
-						<!-- .viewed-courses-box -->
-						<div class="viewed-courses-box">
-							<div class="viewed-courses-img">
-								<img src="source/assets/img/courses-img7.jpg" alt="coureses-img7">
-							</div>
-							<div class="viewed-courses-text">
-								<a href="classroom-presence.html">
-									<h6>The complete Digital marketing course 2017-2018</h6>
-								</a>
-								<p>By : Adluf Gulf</p>
-								<div class="star">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-								</div>
-								<div class="free">
-									FREE
-								</div>
-							</div>
-						</div>
-						<!-- /.viewed-courses-box -->
-					</div>
-					<div class="col-xs-12 col-sm-3 col-md-3">
-						<!-- .viewed-courses-box -->
-						<div class="viewed-courses-box">
-							<div class="viewed-courses-img">
-								<img src="source/assets/img/courses-img8.jpg" alt="coureses-img8">
-							</div>
-							<div class="viewed-courses-text">
-								<a href="classroom-presence.html">
-									<h6>The complete Digital marketing course 2017-2018</h6>
-								</a>
-								<p>By : Adluf Gulf</p>
-								<div class="star">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-								</div>
-								<div class="free">
-									FREE
-								</div>
-							</div>
-						</div>
-						<!-- /.viewed-courses-box -->
-					</div>
+					@endforeach
 					<div class="col-md-12">
 						<a href="#" class="button">Browse More Courses</a>
 					</div>

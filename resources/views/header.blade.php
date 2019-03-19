@@ -17,9 +17,15 @@
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							<div class="social">
 								<ul>
-									<li><a href="login.html">Đăng Nhập</a></li>
+									@if(Auth::check())
+									<li>Chào bạn: {{Auth::user()->name}}</li>
 									<li>|</li>
-									<li><a href="sign-up.html">Đăng Ký</a></li>
+									<li><a href="{{route('logout')}}">Đăng xuất</a></li>
+									@else
+									<li><a href="login">Đăng Nhập</a></li>
+									<li>|</li>
+									<li><a href="signup">Đăng Ký</a></li>
+									@endif
 								</ul>
 							</div>
 						</div>
@@ -59,7 +65,7 @@
                                  <div class="col-sm-12 col-md-12">
                                     <ul>    
                                     @foreach($category as $cat)                                   
-                                       <li><a href="courses.html">{{$cat->Name}}</a></li>
+                                       <li><a href="courses.html">{{$cat->name}}</a></li>
                                     @endforeach
                                     </ul>
                                  </div>                                 
@@ -93,15 +99,5 @@
 			<!-- /mainNav -->
 		</div>
 		<!-- /top-menu -->
-
-		<div class="header-text">
-			<div class="col-xs-12 col-sm-5 col-md-5">
-			</div>
-			<div class="header-bg col-xs-12 col-sm-7 col-md-7">
-				<h1>DON’T HAVE SPACE ON CAMPUS? LET’S START ONLINE</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tellus faucibus vel hendrerit sed, aliquet a est. Cras dapibus nisl non metus viverra, ac convallis eros viverra.Lorem ipsum dolor sit </p>
-				<a href="#" class="header-btn">Find courses Now</a>
-			</div>
-		</div>
 
 	</header>

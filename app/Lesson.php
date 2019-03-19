@@ -9,11 +9,11 @@ class Lesson extends Model
     protected $table = "lesson";
 
     public function comment(){
-    	return $this->hasMany('App\Comment', 'ID_Lesson', 'ID');
+    	return $this->hasMany('App\Comment', 'id_lesson', 'id');
     }
 
     public function course(){
-    	return $this->belongsTo('App\Course', 'ID_Course', 'ID');
+    	return $this->belongsTo('App\Course', 'id_course', 'id');
     }
 }
 

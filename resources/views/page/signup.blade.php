@@ -43,7 +43,7 @@
 								<input name="submit" value="Đăng ký" id="send" type="submit">
 							</div>
 							<div class="col-sm-12 col-md-12">
-								<span>Bạn đã có tài khoản? <a href="#">Đăng nhập</a></span>
+								<span>Bạn đã có tài khoản? <a href="login">Đăng nhập</a></span>
 							</div>
 						</form>
 					</div>

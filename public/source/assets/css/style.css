@@ -103,7 +103,7 @@ a:focus {
 header {
 	background: rgba(0, 0, 0, 0) url("../img/header.jpg") no-repeat scroll 0 80px / cover;
 	color: rgb(255, 255, 255);
-	height: 1000px;
+	height: 600px;
 	overflow: hidden;
 	transition: all 0.35s ease 0s;
 }
@@ -350,7 +350,7 @@ nav {
 }
 .for-box {
 	background: rgb(17, 33, 54) none repeat scroll 0 0;
-	padding: 100px 0;
+	padding: 20px 0;
 }
 .for-box h2 {
 	color: #fff;

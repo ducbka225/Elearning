@@ -28,3 +28,9 @@ Route::post('signup', 'PageController@postSignup');
 //Đăng Nhập
 Route::get('login', 'UserController@getLogin');
 Route::post('login', 'UserController@postLogin');
+
+//Đăng xuất
+Route::get('log-out',[
+	'as'=>'logout',
+	'uses'=>'UserController@getLogout'
+]);

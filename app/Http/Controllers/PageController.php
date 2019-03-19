@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Category;
+use App\Course;
 class PageController extends Controller
 {
     function __construct(){
@@ -13,7 +14,8 @@ class PageController extends Controller
     }
 
     public function getIndex(){
-    	return view('page.trangchu');
+        $hotcourse = Course::where('level', 1)->get();
+    	return view('page.trangchu', compact('hotcourse', $hotcourse));
     }
 
     public function getSignup(){
@@ -40,10 +42,10 @@ class PageController extends Controller
             ]
         );
         $user = new User();
-        $user->Name = $req->username;
-        $user->Email = $req->email;
+        $user->name = $req->username;
+        $user->email = $req->email;
         $user->address = "Hà Nội";
-        $user->Role = 0;
+        $user->role = 0;
         $user->password = \Hash::make($req->password);
         $user->save();
         return redirect('signup')->with('success', 'Tạo tài khoản thành công!');

@@ -9,11 +9,11 @@ class Register extends Model
     protected $table = "register";
 
     public function user(){
-    	return $this->belongsTo('App\User', 'ID_User', 'ID');
+    	return $this->belongsTo('App\User', 'id_user', 'id');
     }
 
     public function course(){
-    	return $this->belongsTo('App\Course', 'ID_Course', 'ID');
+    	return $this->belongsTo('App\Course', 'id_course', 'id');
     }
 }
 

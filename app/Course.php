@@ -9,26 +9,30 @@ class Course extends Model
    	protected $table = "course";
 
    	public function category(){
-    	return $this->belongsTo('App\Category', 'ID_Category', 'ID');
+    	return $this->belongsTo('App\Category', 'id_category', 'id');
+    }
+
+    public function teacher(){
+        return $this->belongsTo('App\User', 'id_user', 'id');
     }
 
 	public function lesson(){
-    	return $this->hasMany('App\Lesson', 'ID_Course', 'ID');
+    	return $this->hasMany('App\Lesson', 'id_course', 'id');
     }
 
     public function register(){
-    	return $this->hasMany('App\Register', 'ID_Course', 'ID');
+    	return $this->hasMany('App\Register', 'id_course', 'id');
     }
 
     public function user_course_comment(){
-    	return $this->hasMany('App\User_course_Comment', 'ID_Course', 'ID');
+    	return $this->hasMany('App\User_course_Comment', 'id_course', 'id');
     }
 
     public function comment(){
-    	return $this->hasManyThrough('App\Comment', 'App\Lesson', 'ID_Course', 'ID_Lesson', 'ID');
+    	return $this->hasManyThrough('App\Comment', 'App\Lesson', 'id_course', 'id_lesson', 'ID');
     }
 
     public function users(){
-    	return $this->hasManyThrough('App\User', 'App\Register', 'ID_User', 'ID_Course', 'ID');
+    	return $this->hasManyThrough('App\User', 'App\Register', 'id_user', 'id_course', 'id');
     }
 }
