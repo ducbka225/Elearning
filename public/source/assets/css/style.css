@@ -103,7 +103,7 @@ a:focus {
 header {
 	background: rgba(0, 0, 0, 0) url("../img/header.jpg") no-repeat scroll 0 80px / cover;
 	color: rgb(255, 255, 255);
-	height: 600px;
+	height: 500px;
 	overflow: hidden;
 	transition: all 0.35s ease 0s;
 }
@@ -1054,7 +1054,7 @@ nav {
 /*-------classroom-container-----*/
 
 .classroom-container {
-	padding: 100px 0;
+	padding: 10px 0;
 }
 .vedio-box {
 	float: left;
@@ -1087,7 +1087,7 @@ nav {
 }
 .upcomming-container {
 	background: rgb(248, 248, 248) none repeat scroll 0 0;
-	padding: 40px 15px;
+	padding: 0px 15px;
 }
 .upcomming-container ul {
 	list-style: outside none none;

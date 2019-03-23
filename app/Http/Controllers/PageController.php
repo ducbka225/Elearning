@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Category;
 use App\Course;
+use App\Lesson;
+use App\Register;
 class PageController extends Controller
 {
     function __construct(){
@@ -49,5 +51,21 @@ class PageController extends Controller
         $user->password = \Hash::make($req->password);
         $user->save();
         return redirect('signup')->with('success', 'Tạo tài khoản thành công!');
-    }	
+    }
+
+    // khóa học theo loại
+    public function getCourse($category){
+        $coursebycat = Course::where('id_category', $category)->get();
+        $categorybyid = Category::where('id', $category)->first();
+        return view('page.course', compact('coursebycat', 'categorybyid'));
+    }
+
+    //chi tiết khoá học
+    public function getChiTiet($courseid){
+        $chitietcourse = Course::where('id', $courseid)->first();
+        $lesson = Lesson::where('id_course', $courseid)->get();
+        $count_student = Register::where('id_course', $courseid)->count('id_user');
+        return view('page.chitiet_course', compact('chitietcourse', 'lesson', 'count_student'));
+    }
+
 }

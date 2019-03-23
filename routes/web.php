@@ -34,3 +34,15 @@ Route::get('log-out',[
 	'as'=>'logout',
 	'uses'=>'UserController@getLogout'
 ]);
+
+// Khóa học theo loại
+Route::get('course-by-category/{category}',[
+	'as'=>'course',
+	'uses'=>'PageController@getCourse'
+]);
+
+//chi tiết khoa học
+Route::get('chi-tiet/{courseid}',[
+	'as'=>'chitiet',
+	'uses'=>'PageController@getChiTiet'
+]);

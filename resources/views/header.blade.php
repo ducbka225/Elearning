@@ -54,7 +54,7 @@
 							<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="index-2.html">Home</a>										
+										<a href="index">Home</a>										
 									</li>
 									<li>
 										<a href="about.html">About Us</a>										
@@ -65,23 +65,20 @@
                                  <div class="col-sm-12 col-md-12">
                                     <ul>    
                                     @foreach($category as $cat)                                   
-                                       <li><a href="courses.html">{{$cat->name}}</a></li>
+                                       <li><a href="{{route('course', $cat->id)}}">{{$cat->name}}</a></li>
                                     @endforeach
                                     </ul>
                                  </div>                                 
                               </div>
 									</li>
 									<li>
-										<a href="teacher.html">Teacher</a>
+										<a href="teacher.html">Giáo Viên</a>
 									</li>
 									<li>
-										<a href="student-portfolio.html">Student Profile</a>										
+										<a href="student-portfolio.html">Học Viên</a>										
 									</li>
 									<li>
-										<a href="pricing.html"><span>Pricing</span></a>
-									</li>
-									<li>
-										<a href="contact.html"><span>Contact</span></a>
+										<a href="contact.html"><span>Liên Hệ</span></a>
 									</li>
 									<li>
 										<a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
@@ -93,11 +90,8 @@
 						</nav>
 					</div>
 				</div>
-
-
 			</div>
 			<!-- /mainNav -->
 		</div>
 		<!-- /top-menu -->
-
 	</header>

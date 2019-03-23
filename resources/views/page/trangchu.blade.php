@@ -65,7 +65,7 @@
 								<img src="source/assets/img/{{$hc->course_avatar}}" alt="coureses-img1">
 							</div>
 							<div class="viewed-courses-text">
-								<a href="classroom-presence.html">
+								<a href="{{route('chitiet', $hc->id)}}">
 									<h6>{{$hc->title}}</h6>
 								</a>
 								<p>Bởi : {{$hc->teacher->name}}</p>
