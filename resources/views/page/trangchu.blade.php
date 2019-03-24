@@ -93,16 +93,7 @@
 		<!-- /.viewed-courses -->
 	</section>
 
-	<section class="px-bg">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h2>Don’t miss anything online<br/> Enjoy our live classes and booked your seat</h2>
-					<a href="#" class="button">Browse More Courses</a>
-				</div>
-			</div>
-		</div>
-	</section>
+	
 
 	<section class="instructor-container">
 		<!-- .instructor-container -->
@@ -347,81 +338,6 @@
 			</div>
 		</div>
 		<!-- /.instructor-container -->
-	</section>
-
-	<section class="price-container">
-		<!-- .price-container -->
-		<div class="container">
-			<div class="tittle">
-				<h2>PLANS AND PRICING</h2>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-4 col-md-4">
-					<!-- .price-box -->
-					<div class="price-box">
-						<div class="price-tittle">
-							FREE TRIAL
-						</div>
-						<div class="price-text">
-							<div class="price-no">
-								<sub>$0.</sub>00
-							</div>
-							<p>FREE 30 DAYS TRIAL</p>
-							<a href="payment.html">Get It Now</a>
-						</div>
-					</div>
-					<!-- .price-box -->
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
-					<!-- .price-box -->
-					<div class="price-box active">
-						<div class="price-tittle">
-							FREE TRIAL
-						</div>
-						<div class="price-text">
-							<div class="price-no">
-								<sub>$0.</sub>00
-							</div>
-							<p>FREE 30 DAYS TRIAL</p>
-							<a href="payment.html">Get It Now</a>
-						</div>
-					</div>
-					<!-- .price-box -->
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
-					<!-- .price-box -->
-					<div class="price-box">
-						<div class="price-tittle">
-							FREE TRIAL
-						</div>
-						<div class="price-text">
-							<div class="price-no">
-								<sub>$0.</sub>00
-							</div>
-							<p>FREE 30 DAYS TRIAL</p>
-							<a href="payment.html">Get It Now</a>
-						</div>
-					</div>
-					<!-- .price-box -->
-				</div>
-			</div>
-		</div>
-		<!-- /.price-container -->
-	</section>
-
-	<section class="px-bg2">
-		<!-- .Subscribe -->
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="subscribe">
-						<h2>120+ classes & Staff Teaching<br/>Courses and Discussing Topics Online</h2>
-						<a href="#" class="button">Subscribe Now</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /.Subscribe -->
 	</section>
 
 @endsection

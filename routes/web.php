@@ -46,3 +46,19 @@ Route::get('chi-tiet/{courseid}',[
 	'as'=>'chitiet',
 	'uses'=>'PageController@getChiTiet'
 ]);
+
+//comment khóa học\
+Route::post('comment_course/{course_id}', 'CommentController@postCommentCourse');
+
+Route::post('comment_lesson/{lesson_id}', 'CommentController@postCommentLesson');
+
+// bài học đầu tiên
+Route::get('lessonfirst/{course_id}',[
+	'as'=>'lessonfirst',
+	'uses'=>'PageController@getLessonFirst'
+]);
+
+Route::get('lesson/{lesson_id}',[
+	'as'=>'lesson',
+	'uses'=>'PageController@getLesson'
+]);

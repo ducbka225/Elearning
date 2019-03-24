@@ -8,6 +8,7 @@ use App\Category;
 use App\Course;
 use App\Lesson;
 use App\Register;
+use Auth;
 class PageController extends Controller
 {
     function __construct(){
@@ -68,4 +69,20 @@ class PageController extends Controller
         return view('page.chitiet_course', compact('chitietcourse', 'lesson', 'count_student'));
     }
 
+    public function getLessonFirst($course_id){
+        $chitietcourse = Course::where('id', $course_id)->first();
+        $lesson = Lesson::where('id_course', $course_id)->get();
+        $lessonshow = Lesson::where('id_course', $course_id)->orderBy('id')->first();
+        $count_student = Register::where('id_course', $course_id)->count('id_user');
+        return view('page.lessonfirst', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student'));
+    }
+
+    public function getLesson($lesson_id){
+        $lessonshow = Lesson::where('id', $lesson_id)->first();
+        $course_id = $lessonshow->id_course;
+        $chitietcourse = Course::where('id', $course_id)->first();
+        $lesson = Lesson::where('id_course', $course_id)->get();
+        $count_student = Register::where('id_course', $course_id)->count('id_user');
+        return view('page.lesson', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student'));
+    }
 }
