@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 19, 2019 lúc 04:20 PM
+-- Thời gian đã tạo: Th3 25, 2019 lúc 03:07 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.3.2
 
@@ -60,6 +60,13 @@ CREATE TABLE `comment` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `comment`
+--
+
+INSERT INTO `comment` (`id`, `content`, `id_user`, `id_lesson`, `created_at`, `updated_at`) VALUES
+(1, 'bài học rât hay', 3, 2, '2019-03-24 15:03:54', '2019-03-24 15:03:54');
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +99,20 @@ INSERT INTO `course` (`id`, `course_number`, `title`, `course_avatar`, `lenght`,
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `content` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_user` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `lesson`
 --
 
@@ -105,6 +126,15 @@ CREATE TABLE `lesson` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `lesson`
+--
+
+INSERT INTO `lesson` (`id`, `lesson_number`, `name`, `video`, `sumary`, `id_course`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Bảng chữ cái', 'https://www.youtube.com/embed/VHaGHGOG-2o', 'Chúng ta cần thuộc lòng bảng chữ cái', 1, NULL, NULL),
+(2, 2, 'Bài thứ nhất', 'https://www.youtube.com/embed/VHaGHGOG-2o', 'chúng ta phải hiểu đc ', 1, NULL, NULL),
+(3, 3, 'Bài thứ 2', 'https://www.youtube.com/embed/VHaGHGOG-2o', 'Cần hiểu rõ vấn đề', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -155,13 +185,20 @@ CREATE TABLE `password_resets` (
 CREATE TABLE `register` (
   `id` int(10) UNSIGNED NOT NULL,
   `register_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `totalprice` double(8,2) NOT NULL,
+  `totalprice` double(12,2) NOT NULL,
   `payment` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_user` int(10) UNSIGNED NOT NULL,
   `id_course` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `register`
+--
+
+INSERT INTO `register` (`id`, `register_number`, `totalprice`, `payment`, `id_user`, `id_course`, `created_at`, `updated_at`) VALUES
+(1, '1', 1500000.00, NULL, 2, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -207,8 +244,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `address`, `phone_number`, `exp`, `avatar`, `infor`, `balance`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Nguyễn Văn Đức', 'nguyenvanduc95bg@gmail.com', NULL, '$2y$10$SFXGn.NvYWyQUxzCWwBB4es4Zd.uwgbZ0kZnAelbeBL3p.o9w3ya2', 'Hà Nội', 0, NULL, NULL, NULL, '0', 2, NULL, '2019-03-19 15:03:12', '2019-03-19 15:03:12'),
-(2, 'Nguyễn Văn Đức', 'ducbka@gmail.com', NULL, '$2y$10$xKcXCz79WcRC0dF0CJXWj.IgrhH8hxxkD.WfOSCLDGCIw7fz6cibi', 'Hà Nội', 0, NULL, NULL, NULL, '0', 0, NULL, '2019-03-19 15:04:24', '2019-03-19 15:04:24');
+(1, 'Nguyễn Văn Đức', 'nguyenvanduc95bg@gmail.com', NULL, '$2y$10$VJxDgJv.bPwk3WtjCrBo/eA6vnZKmC9Ag.WRSmvwo8jgsYS5RThhy', 'Hà Nội', 0, 'N1 tiếng nhật\r\n- Có 10 năm kinh nghiệm giảng dạy.', 'avatar.jpg', NULL, '0', 2, NULL, '2019-03-19 15:03:12', '2019-03-19 15:03:12'),
+(2, 'Nguyễn Văn Đức', 'ducbka@gmail.com', NULL, '$2y$10$VJxDgJv.bPwk3WtjCrBo/eA6vnZKmC9Ag.WRSmvwo8jgsYS5RThhy', 'Hà Nội', 0, NULL, 'avatar.jpg', NULL, '0', 0, NULL, '2019-03-19 15:04:24', '2019-03-19 15:04:24'),
+(3, 'Nguyễn Văn Đức', 'ducbka225@gmail.com', NULL, '$2y$10$VJxDgJv.bPwk3WtjCrBo/eA6vnZKmC9Ag.WRSmvwo8jgsYS5RThhy', 'Hà Nội', 0, NULL, 'avatar.jpg', NULL, '0', 0, NULL, '2019-03-24 03:23:32', '2019-03-24 03:23:32');
 
 -- --------------------------------------------------------
 
@@ -219,12 +257,20 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `ad
 CREATE TABLE `user_course_comment` (
   `id` int(10) UNSIGNED NOT NULL,
   `content` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `rate` int(11) NOT NULL,
+  `rate` int(11) NOT NULL DEFAULT '5',
   `id_user` int(10) UNSIGNED NOT NULL,
   `id_course` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `user_course_comment`
+--
+
+INSERT INTO `user_course_comment` (`id`, `content`, `rate`, `id_user`, `id_course`, `created_at`, `updated_at`) VALUES
+(1, 'Khóa học rất hay', 5, 3, 1, '2019-03-24 03:57:47', '2019-03-24 03:57:47'),
+(2, 'Khóa học rất bổ ich', 5, 3, 1, '2019-03-24 04:06:15', '2019-03-24 04:06:15');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -252,6 +298,13 @@ ALTER TABLE `course`
   ADD PRIMARY KEY (`id`),
   ADD KEY `course_id_category_foreign` (`id_category`),
   ADD KEY `course_id_user_foreign` (`id_user`);
+
+--
+-- Chỉ mục cho bảng `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `feedback_id_user_foreign` (`id_user`);
 
 --
 -- Chỉ mục cho bảng `lesson`
@@ -317,7 +370,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `course`
@@ -326,10 +379,16 @@ ALTER TABLE `course`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT cho bảng `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `lesson`
 --
 ALTER TABLE `lesson`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -341,7 +400,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `re_comment`
@@ -353,13 +412,13 @@ ALTER TABLE `re_comment`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `user_course_comment`
 --
 ALTER TABLE `user_course_comment`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -378,6 +437,12 @@ ALTER TABLE `comment`
 ALTER TABLE `course`
   ADD CONSTRAINT `course_id_category_foreign` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `course_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `feedback`
+--
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `feedback_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `lesson`
