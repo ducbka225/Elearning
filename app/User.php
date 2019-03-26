@@ -53,4 +53,20 @@ class User extends Authenticatable
         return $this->hasMany('App\Register', 'id_user', 'id');
     }
 
+    public function submit_ex1(){
+        return $this->hasMany('App\Submit_Ex1', 'id_user', 'id');
+    }
+
+    public function submit_ex2(){
+        return $this->hasMany('App\Submit_Ex2', 'id_user', 'id');
+    }
+
+    public function submit_ex3(){
+        return $this->hasMany('App\Submit_Ex3', 'id_user', 'id');
+    }
+
+    public function submit_ex4(){
+        return $this->hasMany('App\Submit_Ex4', 'id_user', 'id');
+    }
+
 }

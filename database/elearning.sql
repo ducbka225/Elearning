@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 25, 2019 lúc 03:07 PM
+-- Thời gian đã tạo: Th3 26, 2019 lúc 04:14 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.3.2
 
@@ -99,20 +99,6 @@ INSERT INTO `course` (`id`, `course_number`, `title`, `course_avatar`, `lenght`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `feedback`
---
-
-CREATE TABLE `feedback` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `content` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_user` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `lesson`
 --
 
@@ -162,7 +148,15 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2019_03_17_145158_create_comment_table', 4),
 (8, '2019_03_17_145552_create_user_course_comment_table', 4),
 (9, '2019_03_17_145402_create_re_comment_table', 5),
-(10, '2019_03_19_220018_create_feedback_table', 6);
+(10, '2019_03_19_220018_create_feedback_table', 6),
+(11, '2019_03_26_212631_create_ex1_table', 7),
+(12, '2019_03_26_213621_create_ex2_table', 7),
+(13, '2019_03_26_213655_create_ex3_table', 7),
+(14, '2019_03_26_213711_create_ex4_table', 7),
+(15, '2019_03_26_214225_create_submitex1_table', 7),
+(16, '2019_03_26_214246_create_submitex2_table', 7),
+(17, '2019_03_26_214259_create_submitex3_table', 7),
+(18, '2019_03_26_214311_create_submitex4_table', 7);
 
 -- --------------------------------------------------------
 
@@ -300,13 +294,6 @@ ALTER TABLE `course`
   ADD KEY `course_id_user_foreign` (`id_user`);
 
 --
--- Chỉ mục cho bảng `feedback`
---
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `feedback_id_user_foreign` (`id_user`);
-
---
 -- Chỉ mục cho bảng `lesson`
 --
 ALTER TABLE `lesson`
@@ -379,12 +366,6 @@ ALTER TABLE `course`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `feedback`
---
-ALTER TABLE `feedback`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT cho bảng `lesson`
 --
 ALTER TABLE `lesson`
@@ -394,7 +375,7 @@ ALTER TABLE `lesson`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `register`
@@ -437,12 +418,6 @@ ALTER TABLE `comment`
 ALTER TABLE `course`
   ADD CONSTRAINT `course_id_category_foreign` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `course_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Các ràng buộc cho bảng `feedback`
---
-ALTER TABLE `feedback`
-  ADD CONSTRAINT `feedback_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `lesson`
