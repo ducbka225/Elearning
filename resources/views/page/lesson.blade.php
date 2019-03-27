@@ -66,6 +66,7 @@
 							<li><span>Tổng kết :</span> {{$lessonshow->sumary}}</li>
 						</ul>
 					</div>
+					<a href="" ><p style="color: blue">Làm Bài Tập >> </p></a></li>
 					<!-- /.vedio-box -->
 				</div>
 				<div class="upcomming-container col-xs-12 col-sm-6 col-md-6 wow fadeInRight  animated">

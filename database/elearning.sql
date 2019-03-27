@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 26, 2019 lúc 04:14 PM
+-- Thời gian đã tạo: Th3 27, 2019 lúc 02:20 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.3.2
 
@@ -95,6 +95,77 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`id`, `course_number`, `title`, `course_avatar`, `lenght`, `price`, `promotion_price`, `course_rate`, `level`, `id_category`, `id_user`, `created_at`, `updated_at`) VALUES
 (1, 'N3-01', 'Luyện Thi N3', 'courses-img1.jpg', '10 buổi', 1500000.00, 0.00, 5.00, 1, 4, 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `ex1`
+--
+
+CREATE TABLE `ex1` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_lesson` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `ex2`
+--
+
+CREATE TABLE `ex2` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_lesson` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `ex3`
+--
+
+CREATE TABLE `ex3` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `Content` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Correct` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_lesson` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `ex4`
+--
+
+CREATE TABLE `ex4` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_lesson` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `content` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_user` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -212,6 +283,70 @@ CREATE TABLE `re_comment` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `submit_ex1`
+--
+
+CREATE TABLE `submit_ex1` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `answer` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_user` int(10) UNSIGNED NOT NULL,
+  `id_ex1` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `submit_ex2`
+--
+
+CREATE TABLE `submit_ex2` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `answer` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_user` int(10) UNSIGNED NOT NULL,
+  `id_ex2` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `submit_ex3`
+--
+
+CREATE TABLE `submit_ex3` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `answer` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_user` int(10) UNSIGNED NOT NULL,
+  `id_ex3` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `submit_ex4`
+--
+
+CREATE TABLE `submit_ex4` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `answer` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_user` int(10) UNSIGNED NOT NULL,
+  `id_ex4` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `users`
 --
 
@@ -294,6 +429,41 @@ ALTER TABLE `course`
   ADD KEY `course_id_user_foreign` (`id_user`);
 
 --
+-- Chỉ mục cho bảng `ex1`
+--
+ALTER TABLE `ex1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ex1_id_lesson_foreign` (`id_lesson`);
+
+--
+-- Chỉ mục cho bảng `ex2`
+--
+ALTER TABLE `ex2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ex2_id_lesson_foreign` (`id_lesson`);
+
+--
+-- Chỉ mục cho bảng `ex3`
+--
+ALTER TABLE `ex3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ex3_id_lesson_foreign` (`id_lesson`);
+
+--
+-- Chỉ mục cho bảng `ex4`
+--
+ALTER TABLE `ex4`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ex4_id_lesson_foreign` (`id_lesson`);
+
+--
+-- Chỉ mục cho bảng `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `feedback_id_user_foreign` (`id_user`);
+
+--
 -- Chỉ mục cho bảng `lesson`
 --
 ALTER TABLE `lesson`
@@ -327,6 +497,38 @@ ALTER TABLE `re_comment`
   ADD PRIMARY KEY (`id`),
   ADD KEY `re_comment_id_user_foreign` (`id_user`),
   ADD KEY `re_comment_id_comment_foreign` (`id_comment`);
+
+--
+-- Chỉ mục cho bảng `submit_ex1`
+--
+ALTER TABLE `submit_ex1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `submit_ex1_id_user_foreign` (`id_user`),
+  ADD KEY `submit_ex1_id_ex1_foreign` (`id_ex1`);
+
+--
+-- Chỉ mục cho bảng `submit_ex2`
+--
+ALTER TABLE `submit_ex2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `submit_ex2_id_user_foreign` (`id_user`),
+  ADD KEY `submit_ex2_id_ex2_foreign` (`id_ex2`);
+
+--
+-- Chỉ mục cho bảng `submit_ex3`
+--
+ALTER TABLE `submit_ex3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `submit_ex3_id_user_foreign` (`id_user`),
+  ADD KEY `submit_ex3_id_ex3_foreign` (`id_ex3`);
+
+--
+-- Chỉ mục cho bảng `submit_ex4`
+--
+ALTER TABLE `submit_ex4`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `submit_ex4_id_user_foreign` (`id_user`),
+  ADD KEY `submit_ex4_id_ex4_foreign` (`id_ex4`);
 
 --
 -- Chỉ mục cho bảng `users`
@@ -366,6 +568,36 @@ ALTER TABLE `course`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT cho bảng `ex1`
+--
+ALTER TABLE `ex1`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `ex2`
+--
+ALTER TABLE `ex2`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `ex3`
+--
+ALTER TABLE `ex3`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `ex4`
+--
+ALTER TABLE `ex4`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `lesson`
 --
 ALTER TABLE `lesson`
@@ -387,6 +619,30 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT cho bảng `re_comment`
 --
 ALTER TABLE `re_comment`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `submit_ex1`
+--
+ALTER TABLE `submit_ex1`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `submit_ex2`
+--
+ALTER TABLE `submit_ex2`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `submit_ex3`
+--
+ALTER TABLE `submit_ex3`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `submit_ex4`
+--
+ALTER TABLE `submit_ex4`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -420,6 +676,36 @@ ALTER TABLE `course`
   ADD CONSTRAINT `course_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
+-- Các ràng buộc cho bảng `ex1`
+--
+ALTER TABLE `ex1`
+  ADD CONSTRAINT `ex1_id_lesson_foreign` FOREIGN KEY (`id_lesson`) REFERENCES `lesson` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `ex2`
+--
+ALTER TABLE `ex2`
+  ADD CONSTRAINT `ex2_id_lesson_foreign` FOREIGN KEY (`id_lesson`) REFERENCES `lesson` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `ex3`
+--
+ALTER TABLE `ex3`
+  ADD CONSTRAINT `ex3_id_lesson_foreign` FOREIGN KEY (`id_lesson`) REFERENCES `lesson` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `ex4`
+--
+ALTER TABLE `ex4`
+  ADD CONSTRAINT `ex4_id_lesson_foreign` FOREIGN KEY (`id_lesson`) REFERENCES `lesson` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `feedback`
+--
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `feedback_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
 -- Các ràng buộc cho bảng `lesson`
 --
 ALTER TABLE `lesson`
@@ -438,6 +724,34 @@ ALTER TABLE `register`
 ALTER TABLE `re_comment`
   ADD CONSTRAINT `re_comment_id_comment_foreign` FOREIGN KEY (`id_comment`) REFERENCES `comment` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `re_comment_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `submit_ex1`
+--
+ALTER TABLE `submit_ex1`
+  ADD CONSTRAINT `submit_ex1_id_ex1_foreign` FOREIGN KEY (`id_ex1`) REFERENCES `ex1` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `submit_ex1_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `submit_ex2`
+--
+ALTER TABLE `submit_ex2`
+  ADD CONSTRAINT `submit_ex2_id_ex2_foreign` FOREIGN KEY (`id_ex2`) REFERENCES `ex1` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `submit_ex2_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `submit_ex3`
+--
+ALTER TABLE `submit_ex3`
+  ADD CONSTRAINT `submit_ex3_id_ex3_foreign` FOREIGN KEY (`id_ex3`) REFERENCES `ex1` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `submit_ex3_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `submit_ex4`
+--
+ALTER TABLE `submit_ex4`
+  ADD CONSTRAINT `submit_ex4_id_ex4_foreign` FOREIGN KEY (`id_ex4`) REFERENCES `ex1` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `submit_ex4_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `user_course_comment`
