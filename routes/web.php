@@ -62,3 +62,24 @@ Route::get('lesson/{lesson_id}',[
 	'as'=>'lesson',
 	'uses'=>'PageController@getLesson'
 ]);
+
+// bài tập
+Route::get('ex1/{lesson_id}',[
+	'as'=>'ex1',
+	'uses'=>'BaiTapController@getEx1'
+]);
+
+Route::get('ex2/{lesson_id}',[
+	'as'=>'ex2',
+	'uses'=>'BaiTapController@getEx2'
+]);
+
+Route::get('ex3/{lesson_id}',[
+	'as'=>'ex3',
+	'uses'=>'BaiTapController@getEx3'
+]);
+
+Route::get('ex4/{lesson_id}',[
+	'as'=>'ex4',
+	'uses'=>'BaiTapController@getEx4'
+]);
