@@ -48,7 +48,7 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<a class="navbar-brand" href="#"><img src="source/assets/img/logo.png" alt="logo"/></a>
+								<a class="navbar-brand" href="index"><img src="source/assets/img/logo.png" alt="logo"/></a>
 							</div>
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight">

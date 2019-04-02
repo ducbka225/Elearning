@@ -8,8 +8,8 @@ class Submit_Ex3 extends Model
 {
     protected $table = "submit_ex3";
 
-    public function lesson(){
-    	return $this->belongsTo('App\Lesson', 'id_lesson', 'id');
+    public function ex3(){
+    	return $this->belongsTo('App\Ex3', 'id_ex3', 'id');
     }
 
     public function user(){

@@ -101,9 +101,9 @@ a:focus {
 /*-------header-----*/
 
 header {
-	background: rgba(0, 0, 0, 0) url("../img/header.jpg") no-repeat scroll 0 80px / cover;
+	/*background: rgba(0, 0, 0, 0) url("../img/header.jpg") no-repeat scroll 0 80px / cover;*/
 	color: rgb(255, 255, 255);
-	height: 500px;
+	height: 200px;
 	overflow: hidden;
 	transition: all 0.35s ease 0s;
 }

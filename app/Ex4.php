@@ -11,4 +11,8 @@ class Ex4 extends Model
     public function lesson(){
     	return $this->belongsTo('App\Lesson', 'id_lesson', 'id');
     }
+
+    public function submit_ex4(){
+        return $this->hasMany('App\Submit_Ex4', 'id_ex4', 'id');
+    }
 }
