@@ -16,16 +16,23 @@
 			      <div style="position:relative;width:100%;">
 			        <div id="altcontainer">
 			          <ul style="list-style-type: none;">
-			          	<li>
-			          		<a href="{{route('downloadfile'), $ex4->id}}" class="btn btn-primary">Download Bài tập</a>
-			          	</li>
+			          	<hr>
 			          	<li>
 			          		<div>
-		          			 <form role="form" action="#" method="post">
+		          			 <form role="form" action="{{route('postex4', $ex4->id)}}" method="post" enctype="multipart/form-data">
 		          			 	{!!csrf_field()!!}
+		          			 	<a href="{{route('downloadfile', $ex4->id)}}" class="btn btn-primary">Download Bài tập</a>
+		          			 	<hr>
+			          			
+			          			@if($join_table == null)
 			          			Nộp bài tập:
 								<input type="file" name="filename" value="upload"> 
 								<button class="btn-success" type="submit">Submit ❯</button>
+								@else
+								
+								<p>Bạn đã nộp bài tập	</p>
+								
+								@endif
 			          		</div>
       					     </form>	          						
 						</li>
