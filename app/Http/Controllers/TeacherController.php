@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Course;
 use App\Lesson;
 use Auth;
+use App\Ex1;
+use App\Ex2;
+use App\Ex3;
+use App\Ex4;
 
 class TeacherController extends Controller
 {
@@ -46,6 +50,117 @@ class TeacherController extends Controller
         return redirect()->back()->with('message', 'Xóa Thành Công');
     }
 
+    public function getBaiTap($lesson_id){
+        $ex1 = Ex1::where('id_lesson', $lesson_id)->get();
+        $ex2 = Ex2::where('id_lesson', $lesson_id)->get();
+        $ex3 = Ex3::where('id_lesson', $lesson_id)->get();
+        $ex4 = Ex4::where('id_lesson', $lesson_id)->get();
+        return view('teacher.pages.listex', compact('ex1', 'ex2', 'ex3','ex4', 'lesson_id'));
+    }
+
+//////////////////////////////////////////////
+    public function getThemex1($lesson_id){
+        return view('teacher.pages.thembaitap.addex1', compact('lesson_id'));
+    }
+    public function getThemex2($lesson_id){
+        return view('teacher.pages.thembaitap.addex2', compact('lesson_id'));
+    }
+    public function getThemex3($lesson_id){
+        return view('teacher.pages.thembaitap.addex3', compact('lesson_id'));
+    }
+    public function getThemex4($lesson_id){
+        return view('teacher.pages.thembaitap.addex4', compact('lesson_id'));
+    }
+
+
+    public function postThemex1($lesson_id, Request $req){
+        $ex1 = new Ex1;
+        $ex1->id_lesson = $lesson_id;
+        if($req->hasFile('filename')){
+            $file = $req->File('filename');
+            $name = $file->getClientOriginalName();
+            $duoi = $file->getClientOriginalExtension();
+            if($duoi != 'mp3'){
+                return redirect()->back()->with('error', 'file không đúng định dạng');
+            }
+
+            $savefile = str_random(4)."_".$name;
+            while(file_exists("source/assets/audio/".$savefile))
+            {
+                $savefile = str_random(4)."_".$name;
+            }
+            $file->move("source/assets/audio/", $savefile);
+            $ex1->file = $savefile;  
+        }
+        else{
+            $ex1->file = "";
+        }       
+        $ex1->save();
+        return redirect()->back()->with('success', 'Thêm Thành công');
+    }
+
+    public function postThemex2($lesson_id, Request $req){
+        $ex2 = new Ex2;
+        $ex2->id_lesson = $lesson_id;
+        if($req->hasFile('filename')){
+            $file = $req->File('filename');
+            $name = $file->getClientOriginalName();
+            $duoi = $file->getClientOriginalExtension();
+            if($duoi != 'mp3'){
+                return redirect()->back()->with('error', 'file không đúng định dạng');
+            }
+
+            $savefile = str_random(4)."_".$name;
+            while(file_exists("source/assets/audio/".$savefile))
+            {
+                $savefile = str_random(4)."_".$name;
+            }
+            $file->move("source/assets/audio/", $savefile);
+            $ex2->file = $savefile;  
+        }
+        else{
+            $ex2->file = "";
+        }       
+        $ex2->save();
+        return redirect()->back()->with('success', 'Thêm Thành công');
+        
+    }
+    public function postThemex3($lesson_id, Request $req){
+        $ex3 = new Ex3;
+        $ex3->id_lesson = $lesson_id;
+        $ex3->Content = $req->txtcontent;
+        $ex3->Correct = $req->txtcorrect;
+        $ex3->save();
+        return redirect()->back()->with('success', 'Thêm Thành công');
+        
+    }
+    public function postThemex4($lesson_id, Request $req){
+        $ex4 = new Ex4;
+        $ex4->id_lesson = $lesson_id;
+        if($req->hasFile('filename')){
+            $file = $req->File('filename');
+            $name = $file->getClientOriginalName();
+            $duoi = $file->getClientOriginalExtension();
+            if($duoi != 'docx'){
+                return redirect()->back()->with('error', 'file không đúng định dạng');
+            }
+
+            $savefile = str_random(4)."_".$name;
+            while(file_exists("source/assets/file/".$savefile))
+            {
+                $savefile = str_random(4)."_".$name;
+            }
+            $file->move("source/assets/file/", $savefile);
+            $ex4->answer = $savefile;  
+        }
+        else{
+            $ex4->answer = "";
+        }       
+        $ex4->save();
+        return redirect()->back()->with('success', 'Thêm Thành công');
+        
+    }
+////////////////////////////////////////////////////
 
     public function postLogin(Request $request){    
            $this->validate($request,

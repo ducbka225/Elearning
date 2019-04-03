@@ -144,3 +144,15 @@ Route::get('/teacher/lesson/{course_id}', 'TeacherController@getLesson')->name('
 Route::get('/teacher/addlesson/{course_id}', 'TeacherController@getAddLesson')->name('addlesson');
 Route::post('postaddlesson/{course_id}', 'TeacherController@postAddLesson');
 Route::get('deletelesson/{lesson_id}', 'TeacherController@DeleteLesson');
+
+//list ex
+Route::get('/teacher/baitap/{lesson_id}', 'TeacherController@getBaiTap');
+Route::get('/teacher/themex1/{lesson_id}', 'TeacherController@getThemex1');
+Route::get('/teacher/themex2/{lesson_id}', 'TeacherController@getThemex2');
+Route::get('/teacher/themex3/{lesson_id}', 'TeacherController@getThemex3');
+Route::get('/teacher/themex4/{lesson_id}', 'TeacherController@getThemex4');
+
+Route::post('/teacher/themex1/{lesson_id}', 'TeacherController@postThemex1');
+Route::post('/teacher/themex2/{lesson_id}', 'TeacherController@postThemex2');
+Route::post('/teacher/themex3/{lesson_id}', 'TeacherController@postThemex3');
+Route::post('/teacher/themex4/{lesson_id}', 'TeacherController@postThemex4');

@@ -36,7 +36,7 @@
                                 	<a href="/teacher/addlesson/{{$course_id}}" title="Thêm bài Tập">
 							          <span class="glyphicon glyphicon-plus"></span>
 							        </a> | 
-							        <a href="#">
+							        <a href="/teacher/baitap/{{$ll->id}}">
 							          <span class="glyphicon glyphicon-list-alt"></span>
 							        </a>
                                 </td>
