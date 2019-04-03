@@ -123,3 +123,24 @@ Route::post('postEx4/{ex4_id}', [
 	'as'=>'postex4',
 	'uses'=>'BaiTapController@postEx4'
 ]);
+
+/////////////////////////////////////////////////////////////
+// Teacher
+
+//Đăng Nhập
+Route::get('/teacher/login', 'TeacherController@getLogin');
+Route::post('/teacher/login', 'TeacherController@postLogin');
+
+//Đăng xuất
+Route::get('/teacher/logout','TeacherController@getLogout');
+
+//list course
+Route::get('/teacher/course', 'TeacherController@getCourse');
+
+//list Lesson by course
+Route::get('/teacher/lesson/{course_id}', 'TeacherController@getLesson')->name('listlesson');
+
+// thêm lesson
+Route::get('/teacher/addlesson/{course_id}', 'TeacherController@getAddLesson')->name('addlesson');
+Route::post('postaddlesson/{course_id}', 'TeacherController@postAddLesson');
+Route::get('deletelesson/{lesson_id}', 'TeacherController@DeleteLesson');
