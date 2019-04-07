@@ -85,4 +85,8 @@ class PageController extends Controller
         $count_student = Register::where('id_course', $course_id)->count('id_user');
         return view('page.lesson', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student'));
     }
+
+     public function getCallVideo(){
+        return view('page.callvideo');
+     }
 }

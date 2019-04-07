@@ -156,3 +156,6 @@ Route::post('/teacher/themex1/{lesson_id}', 'TeacherController@postThemex1');
 Route::post('/teacher/themex2/{lesson_id}', 'TeacherController@postThemex2');
 Route::post('/teacher/themex3/{lesson_id}', 'TeacherController@postThemex3');
 Route::post('/teacher/themex4/{lesson_id}', 'TeacherController@postThemex4');
+
+//callvideo
+Route::get('/callvideo', 'PageController@getCallVideo');

@@ -57,7 +57,7 @@
 										<a href="index">Home</a>										
 									</li>
 									<li>
-										<a href="about.html">About Us</a>										
+										<a href="callvideo">Call Video</a>										
 									</li>
 									<li class="dropdown">
 										<a href="courses.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Khóa Học</a>
