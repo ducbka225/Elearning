@@ -33,10 +33,10 @@
 								</td>
                                 <td class="center">
                                 	<a href="deletelesson/{{$ll->id}}" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a> | 
-                                	<a href="/teacher/addlesson/{{$course_id}}" title="Thêm bài Tập">
-							          <span class="glyphicon glyphicon-plus"></span>
+                                	<a href="/teacher/chambai/{{$ll->id}}"  title="Chấm Bài">
+							          <span class="glyphicon glyphicon-check"></span>
 							        </a> | 
-							        <a href="/teacher/baitap/{{$ll->id}}">
+							        <a href="/teacher/baitap/{{$ll->id}}" title="Danh Sách Bài tập">
 							          <span class="glyphicon glyphicon-list-alt"></span>
 							        </a>
                                 </td>

@@ -158,7 +158,7 @@ class BaiTapController extends Controller
         $submit_ex1 = new Submit_Ex1;
         $submit_ex1->id_user = Auth::user()->id;
         $submit_ex1->id_ex1 = $ex1_id;
-        $submit_ex1->result = "0"; 
+        // $submit_ex1->result = "0"; 
         if($req->hasFile('filename')){
             $file = $req->File('filename');
             $name = $file->getClientOriginalName();
@@ -186,7 +186,7 @@ class BaiTapController extends Controller
         $submit_ex2 = new Submit_Ex2;
         $submit_ex2->id_user = Auth::user()->id;
         $submit_ex2->id_ex2 = $ex2_id;
-        $submit_ex2->result = "0"; 
+        // $submit_ex2->result = "0"; 
         $submit_ex2->answer = $req->answer;
         $submit_ex2->save();
         return redirect()->back();

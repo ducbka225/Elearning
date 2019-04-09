@@ -6,10 +6,16 @@ use Illuminate\Http\Request;
 use App\Course;
 use App\Lesson;
 use Auth;
+use DB;
+use App\User;
 use App\Ex1;
 use App\Ex2;
 use App\Ex3;
 use App\Ex4;
+use App\Submit_Ex1;
+use App\Submit_Ex2;
+use App\Submit_Ex3;
+use App\Submit_Ex4;
 
 class TeacherController extends Controller
 {
@@ -192,4 +198,65 @@ class TeacherController extends Controller
         Auth::logout();
         return redirect('/teacher/login');
     }
-}
+
+    // list Student
+    public function getStudent(){
+        $student = User::where('role', 0)->get();
+        return view('teacher.pages.liststudent', compact('student'));
+    }
+
+    // chấm bài
+    public function getChamBai($lesson_id){
+        return view('teacher.pages.chambai', compact('lesson_id'));
+    }
+
+    public function getChamBaiEx1($lesson_id){
+        $student = User::where('role', 0)->get();
+        $ex1 = Ex1::where('id_lesson', $lesson_id)->get();
+        return view('teacher.pages.chambai.ex1', compact('ex1', 'lesson_id', 'student'));
+    }
+
+    public function getChamBaiEx2($lesson_id){
+        $student = User::where('role', 0)->get();
+        $ex2 = Ex2::where('id_lesson', $lesson_id)->get();
+        return view('teacher.pages.chambai.ex2', compact('ex2', 'lesson_id', 'student'));
+    }
+
+    //ex1
+    public function getChamBaiEx1ByUser($lesson_id, $user_id){
+        $join_table = DB::table('submit_ex1')
+            ->join('ex1','ex1.id','=','submit_ex1.id_ex1')
+            ->where(['ex1.id_lesson' => $lesson_id, 'submit_ex1.id_user' => $user_id])
+            ->select('submit_ex1.*', 'ex1.file')
+            ->get();    
+            // dd($join_table);
+            
+        return view('teacher.pages.chambai.ex1_user', compact('join_table'));
+    }
+
+    public function postChamBaiEx1($submit_id, Request $req){
+        $submit_ex1 = Submit_Ex1::where('id', $submit_id)->first();
+        $submit_ex1->result = $req ->result;
+        $submit_ex1->save();
+        return redirect()->back();
+    }
+
+    // ex2
+
+    public function getChamBaiEx2ByUser($lesson_id, $user_id){
+        $join_table = DB::table('submit_ex2')
+            ->join('ex2','ex2.id','=','submit_ex2.id_ex2')
+            ->where(['ex2.id_lesson' => $lesson_id, 'submit_ex2.id_user' => $user_id])
+            ->select('submit_ex2.*', 'ex2.file')
+            ->get();    
+            
+        return view('teacher.pages.chambai.ex2_user', compact('join_table'));
+    }
+
+    public function postChamBaiEx2($submit_id, Request $req){
+        $submit_ex2 = Submit_Ex2::where('id', $submit_id)->first();
+        $submit_ex2->result = $req ->result;
+        $submit_ex2->save();
+        return redirect()->back();
+    }
+}   

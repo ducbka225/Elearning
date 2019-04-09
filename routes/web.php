@@ -157,5 +157,22 @@ Route::post('/teacher/themex2/{lesson_id}', 'TeacherController@postThemex2');
 Route::post('/teacher/themex3/{lesson_id}', 'TeacherController@postThemex3');
 Route::post('/teacher/themex4/{lesson_id}', 'TeacherController@postThemex4');
 
+//list student
+Route::get('/teacher/student', 'TeacherController@getStudent');
+
+// Chấm bài
+Route::get('/teacher/chambai/{lesson_id}', 'TeacherController@getChamBai');
+Route::get('/teacher/chambai/ex1/{lesson_id}', 'TeacherController@getChamBaiEx1');
+Route::get('/teacher/chambai/ex2/{lesson_id}', 'TeacherController@getChamBaiEx2');
+Route::get('/teacher/chambai/ex3/{lesson_id}', 'TeacherController@getChamBaiEx3');
+Route::get('/teacher/chambai/ex4/{lesson_id}', 'TeacherController@getChamBaiEx4');
+
+Route::get('/teacher/chambai/ex1/{lesson_id}/{user_id}', 'TeacherController@getChamBaiEx1ByUser');
+Route::post('/teacher/chambai/ex1/{submit_id}', 'TeacherController@postChamBaiEx1');
+
+Route::get('/teacher/chambai/ex2/{lesson_id}/{user_id}', 'TeacherController@getChamBaiEx2ByUser');
+Route::post('/teacher/chambai/ex2/{submit_id}', 'TeacherController@postChamBaiEx2');
+
+
 //callvideo
 Route::get('/callvideo', 'PageController@getCallVideo');

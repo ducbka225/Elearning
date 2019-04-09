@@ -28,13 +28,13 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-cube fa-fw"></i> Course<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List Product</a>
+                                    <a href="/teacher/course">List Course</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add Product</a>
+                                    <a href="#">Add Course</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -43,7 +43,7 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List User</a>
+                                    <a href="/teacher/student">List User</a>
                                 </li>
                                 <li>
                                     <a href="#">Add User</a>
