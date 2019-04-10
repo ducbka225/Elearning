@@ -137,7 +137,7 @@ class BaiTapController extends Controller
     {
         $dl =  Ex4::where('id', $ex4_id)->first();
         $fileNameGenerate = 'baitap';
-        $file_path = storage_path('source/assets/file/'.$dl->file);
+        $file_path = Public_path('source/assets/file/'.$dl->file);
         $headers = array(
             'Content-Type: application/docx',
         );

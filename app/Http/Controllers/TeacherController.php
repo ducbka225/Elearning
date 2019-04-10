@@ -16,6 +16,8 @@ use App\Submit_Ex1;
 use App\Submit_Ex2;
 use App\Submit_Ex3;
 use App\Submit_Ex4;
+use App\Comment;
+use App\Re_comment;
 
 class TeacherController extends Controller
 {
@@ -222,6 +224,12 @@ class TeacherController extends Controller
         return view('teacher.pages.chambai.ex2', compact('ex2', 'lesson_id', 'student'));
     }
 
+    public function getChamBaiEx4($lesson_id){
+        $student = User::where('role', 0)->get();
+        $ex4 = Ex4::where('id_lesson', $lesson_id)->get();
+        return view('teacher.pages.chambai.ex4', compact('ex4', 'lesson_id', 'student'));
+    }
+
     //ex1
     public function getChamBaiEx1ByUser($lesson_id, $user_id){
         $join_table = DB::table('submit_ex1')
@@ -258,5 +266,69 @@ class TeacherController extends Controller
         $submit_ex2->result = $req ->result;
         $submit_ex2->save();
         return redirect()->back();
+    }
+
+    // ex4
+
+    public function getChamBaiEx4ByUser($lesson_id, $user_id){
+        $join_table = DB::table('submit_ex4')
+            ->join('ex4','ex4.id','=','submit_ex4.id_ex4')
+            ->where(['ex4.id_lesson' => $lesson_id, 'submit_ex4.id_user' => $user_id])
+            ->select('submit_ex4.*', 'ex4.file')
+            ->get();    
+            
+        return view('teacher.pages.chambai.ex4_user', compact('join_table'));
+    }
+
+    public function postChamBaiEx4($submit_id, Request $req){
+        $submit_ex4 = Submit_Ex4::where('id', $submit_id)->first();
+        $submit_ex4->result = $req ->result;
+        $submit_ex4->save();
+        return redirect()->back();
+    }
+
+    public function downloadEx4($id)
+    {
+        $dl =  Submit_Ex4::where('id', $id)->first();
+        $fileNameGenerate = 'baitap';
+        $file_path = Public_path('source/assets/file/'.$dl->file);
+        $headers = array(
+            'Content-Type: application/docx',
+        );
+        try 
+        {
+            return response()->download($file_path, $fileNameGenerate . '.' . 'docx', $headers);
+        } 
+        catch (Exception $e) 
+        {
+            //Error
+            return redirect()->back()->with('error', trans('locale.file_does_not_exists'));
+        }
+
+    }
+
+
+    //Comment
+    public function getComment($lesson_id){
+        $comment = Comment::where('id_lesson', $lesson_id)->get();
+        return view('teacher.pages.comment', compact('comment'));
+    }
+
+    public function postComment($Comment_id, Request $req){
+        $recomment = new Re_comment;
+        $recomment->content = $req->content;
+        $recomment->id_user = Auth::user()->id;
+        $recomment ->id_comment = $Comment_id;
+        $recomment->save();
+        return redirect()->back()->with('message', 'Thành Công');
+    }
+
+    public function getXoaComment($comment_id){
+        $recomment = Re_comment::where('id_comment', $comment_id)->get();
+        $recomment->delete();
+        
+        $comment = Comment::where('id', $comment_id)->first();
+        $comment->delete();
+        return redirect()->back()->with('message', 'Đã xóa');
     }
 }   

@@ -33,8 +33,9 @@
 								<p>Bạn đã nộp bài tập	</p>
 								
 								@endif
-			          		</div>
-      					     </form>	          						
+			          		
+      					     </form>
+      					     </div>	          						
 						</li>
 						<hr size="50px" style="color: red"/>			
 			          </ul>

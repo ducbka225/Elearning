@@ -173,6 +173,18 @@ Route::post('/teacher/chambai/ex1/{submit_id}', 'TeacherController@postChamBaiEx
 Route::get('/teacher/chambai/ex2/{lesson_id}/{user_id}', 'TeacherController@getChamBaiEx2ByUser');
 Route::post('/teacher/chambai/ex2/{submit_id}', 'TeacherController@postChamBaiEx2');
 
+Route::get('/teacher/chambai/ex4/{lesson_id}/{user_id}', 'TeacherController@getChamBaiEx4ByUser');
+Route::post('/teacher/chambai/ex4/{submit_id}', 'TeacherController@postChamBaiEx4');
+Route::get('downloadrefile/{id}', [
+	'as'=>'downloadrefile',
+	'uses'=>'TeacherController@downloadEx4'
+]);
+
+//comment
+Route::get('/teacher/comment/{lesson_id}', 'TeacherController@getComment');
+Route::post('/teacher/comment/{comment}', 'TeacherController@postComment');
+
+Route::get('/teacher/xoacomment/{$comment_id}', 'TeacherController@getXoaComment');
 
 //callvideo
 Route::get('/callvideo', 'PageController@getCallVideo');

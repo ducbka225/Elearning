@@ -38,7 +38,10 @@
 							        </a> | 
 							        <a href="/teacher/baitap/{{$ll->id}}" title="Danh Sách Bài tập">
 							          <span class="glyphicon glyphicon-list-alt"></span>
-							        </a>
+							        </a> |
+                                    <a href="/teacher/comment/{{$ll->id}}" title="Comment">
+                                      <span class="glyphicon glyphicon-edit"></span>
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach
