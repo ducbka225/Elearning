@@ -56,12 +56,12 @@ Route::post('comment_lesson/{lesson_id}', 'CommentController@postCommentLesson')
 Route::get('lessonfirst/{course_id}',[
 	'as'=>'lessonfirst',
 	'uses'=>'PageController@getLessonFirst'
-]);
+])->middleware('studentLogin');
 
 Route::get('lesson/{lesson_id}',[
 	'as'=>'lesson',
 	'uses'=>'PageController@getLesson'
-]);
+])->middleware('studentLogin');
 
 // bài tập
 Route::get('ex1/{lesson_id}',[
@@ -135,22 +135,22 @@ Route::post('/teacher/login', 'TeacherController@postLogin');
 Route::get('/teacher/logout','TeacherController@getLogout');
 
 //list course
-Route::get('/teacher/course', 'TeacherController@getCourse');
+Route::get('/teacher/course', 'TeacherController@getCourse')->middleware('teacherLogin');
 
 //list Lesson by course
-Route::get('/teacher/lesson/{course_id}', 'TeacherController@getLesson')->name('listlesson');
+Route::get('/teacher/lesson/{course_id}', 'TeacherController@getLesson')->name('listlesson')->middleware('teacherLogin');
 
 // thêm lesson
-Route::get('/teacher/addlesson/{course_id}', 'TeacherController@getAddLesson')->name('addlesson');
+Route::get('/teacher/addlesson/{course_id}', 'TeacherController@getAddLesson')->name('addlesson')->middleware('teacherLogin');
 Route::post('postaddlesson/{course_id}', 'TeacherController@postAddLesson');
-Route::get('deletelesson/{lesson_id}', 'TeacherController@DeleteLesson');
+Route::get('deletelesson/{lesson_id}', 'TeacherController@DeleteLesson')->middleware('teacherLogin');
 
 //list ex
-Route::get('/teacher/baitap/{lesson_id}', 'TeacherController@getBaiTap');
-Route::get('/teacher/themex1/{lesson_id}', 'TeacherController@getThemex1');
-Route::get('/teacher/themex2/{lesson_id}', 'TeacherController@getThemex2');
-Route::get('/teacher/themex3/{lesson_id}', 'TeacherController@getThemex3');
-Route::get('/teacher/themex4/{lesson_id}', 'TeacherController@getThemex4');
+Route::get('/teacher/baitap/{lesson_id}', 'TeacherController@getBaiTap')->middleware('teacherLogin');
+Route::get('/teacher/themex1/{lesson_id}', 'TeacherController@getThemex1')->middleware('teacherLogin');
+Route::get('/teacher/themex2/{lesson_id}', 'TeacherController@getThemex2')->middleware('teacherLogin');
+Route::get('/teacher/themex3/{lesson_id}', 'TeacherController@getThemex3')->middleware('teacherLogin');
+Route::get('/teacher/themex4/{lesson_id}', 'TeacherController@getThemex4')->middleware('teacherLogin');
 
 Route::post('/teacher/themex1/{lesson_id}', 'TeacherController@postThemex1');
 Route::post('/teacher/themex2/{lesson_id}', 'TeacherController@postThemex2');
@@ -158,22 +158,22 @@ Route::post('/teacher/themex3/{lesson_id}', 'TeacherController@postThemex3');
 Route::post('/teacher/themex4/{lesson_id}', 'TeacherController@postThemex4');
 
 //list student
-Route::get('/teacher/student', 'TeacherController@getStudent');
+Route::get('/teacher/student', 'TeacherController@getStudent')->middleware('teacherLogin');
 
 // Chấm bài
-Route::get('/teacher/chambai/{lesson_id}', 'TeacherController@getChamBai');
-Route::get('/teacher/chambai/ex1/{lesson_id}', 'TeacherController@getChamBaiEx1');
-Route::get('/teacher/chambai/ex2/{lesson_id}', 'TeacherController@getChamBaiEx2');
-Route::get('/teacher/chambai/ex3/{lesson_id}', 'TeacherController@getChamBaiEx3');
-Route::get('/teacher/chambai/ex4/{lesson_id}', 'TeacherController@getChamBaiEx4');
+Route::get('/teacher/chambai/{lesson_id}', 'TeacherController@getChamBai')->middleware('teacherLogin');
+Route::get('/teacher/chambai/ex1/{lesson_id}', 'TeacherController@getChamBaiEx1')->middleware('teacherLogin');
+Route::get('/teacher/chambai/ex2/{lesson_id}', 'TeacherController@getChamBaiEx2')->middleware('teacherLogin');
+Route::get('/teacher/chambai/ex3/{lesson_id}', 'TeacherController@getChamBaiEx3')->middleware('teacherLogin');
+Route::get('/teacher/chambai/ex4/{lesson_id}', 'TeacherController@getChamBaiEx4')->middleware('teacherLogin');
 
-Route::get('/teacher/chambai/ex1/{lesson_id}/{user_id}', 'TeacherController@getChamBaiEx1ByUser');
+Route::get('/teacher/chambai/ex1/{lesson_id}/{user_id}', 'TeacherController@getChamBaiEx1ByUser')->middleware('teacherLogin');
 Route::post('/teacher/chambai/ex1/{submit_id}', 'TeacherController@postChamBaiEx1');
 
-Route::get('/teacher/chambai/ex2/{lesson_id}/{user_id}', 'TeacherController@getChamBaiEx2ByUser');
+Route::get('/teacher/chambai/ex2/{lesson_id}/{user_id}', 'TeacherController@getChamBaiEx2ByUser')->middleware('teacherLogin');
 Route::post('/teacher/chambai/ex2/{submit_id}', 'TeacherController@postChamBaiEx2');
 
-Route::get('/teacher/chambai/ex4/{lesson_id}/{user_id}', 'TeacherController@getChamBaiEx4ByUser');
+Route::get('/teacher/chambai/ex4/{lesson_id}/{user_id}', 'TeacherController@getChamBaiEx4ByUser')->middleware('teacherLogin');
 Route::post('/teacher/chambai/ex4/{submit_id}', 'TeacherController@postChamBaiEx4');
 Route::get('downloadrefile/{id}', [
 	'as'=>'downloadrefile',
@@ -181,7 +181,7 @@ Route::get('downloadrefile/{id}', [
 ]);
 
 //comment
-Route::get('/teacher/comment/{lesson_id}', 'TeacherController@getComment');
+Route::get('/teacher/comment/{lesson_id}', 'TeacherController@getComment')->middleware('teacherLogin');
 Route::post('/teacher/comment/{comment}', 'TeacherController@postComment');
 
 Route::get('/teacher/xoacomment/{$comment_id}', 'TeacherController@getXoaComment');
