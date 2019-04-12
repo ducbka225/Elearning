@@ -25,6 +25,10 @@ class TeacherController extends Controller
     	return view('teacher.pages.login');
     }
 
+     public function getAdminLogin(){
+        return view('teacher.pages.adminlogin');
+    }
+
     public function getCourse(){
     	$listCourse = Course::all();
     	return view('teacher.pages.listcourse', compact('listCourse'));
@@ -192,6 +196,33 @@ class TeacherController extends Controller
 
         else{
             return redirect('/teacher/login')->with('message','Đăng Nhập thất bại');
+        }
+        
+    }
+
+    public function postAdminLogin(Request $request){    
+           $this->validate($request,
+            [
+                'email'=>'required|email',
+                'password'=>'required|min:6',
+                
+            ],
+            [
+                'email.required'=>'Vui lòng nhập email!',
+                'email.email'=>'Không đúng định dạng email',
+                'password.required'=>'Vui lòng nhập mật khẩu',
+                'password.min'=>'Mật khẩu có ít nhất 6 ký tự',
+            ]
+        );
+        
+        $user = array('email'=>$request->email, 'password'=>$request->password, 'role'=>$request->role);
+
+        if(Auth::attempt($user)){
+            return redirect('/teacher/course');
+        }
+
+        else{
+            return redirect('/admin/login')->with('message','Đăng Nhập thất bại');
         }
         
     }

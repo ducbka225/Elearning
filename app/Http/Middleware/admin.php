@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class TeacherMiddleware
+class admin
 {
     /**
      * Handle an incoming request.
@@ -18,17 +18,16 @@ class TeacherMiddleware
     {
         if(Auth::check()){
             $user = Auth::user();
-            if($user->role == 1 || $user->role == 2){
+            if($user->role == 2){
                 return $next($request);
             }
             else{
-                return redirect('/teacher/login');
+                return redirect('/admin/login')->with('message', 'Bạn không đủ quyền!');
             }
             
         }
         else{
-            return redirect('/teacher/login');
+            return redirect('/admin/login');
         }
-        
     }
 }

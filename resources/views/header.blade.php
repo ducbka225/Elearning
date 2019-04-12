@@ -72,10 +72,10 @@
                               </div>
 									</li>
 									<li>
-										<a href="teacher.html">Giáo Viên</a>
+										<a href="teacher">Giáo Viên</a>
 									</li>
 									<li>
-										<a href="student-portfolio.html">Học Viên</a>										
+										<a href="student/info">Thông tin Cá nhân</a>										
 									</li>
 									<li>
 										<a href="contact.html"><span>Liên Hệ</span></a>

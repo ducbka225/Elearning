@@ -86,7 +86,24 @@ class PageController extends Controller
         return view('page.lesson', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student'));
     }
 
-     public function getCallVideo(){
+    public function getCallVideo(){
         return view('page.callvideo');
-     }
+    }
+
+    public function getStudentInfo(){
+
+        $id = Auth::user()->id;
+        $user = User::find($id);
+
+        $register = Register::where('id_user', $id)->get();
+
+        return view('page.info', compact('user', 'register'));
+    }
+
+    public function getTeacher(){
+
+        $teacher = User:: where('role', '1')->get();
+        return view('page.teacher', compact('teacher'));
+    }
+
 }

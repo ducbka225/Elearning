@@ -52,6 +52,13 @@ Route::post('comment_course/{course_id}', 'CommentController@postCommentCourse')
 
 Route::post('comment_lesson/{lesson_id}', 'CommentController@postCommentLesson');
 
+// thông tin cá nhân
+
+Route::get('student/info', 'PageController@getStudentInfo')->middleware('studentLogin');
+
+//list teacher
+Route::get('teacher', 'PageController@getTeacher');
+
 // bài học đầu tiên
 Route::get('lessonfirst/{course_id}',[
 	'as'=>'lessonfirst',
@@ -131,6 +138,9 @@ Route::post('postEx4/{ex4_id}', [
 Route::get('/teacher/login', 'TeacherController@getLogin');
 Route::post('/teacher/login', 'TeacherController@postLogin');
 
+Route::get('/admin/login', 'TeacherController@getAdminLogin');
+Route::post('/admin/login', 'TeacherController@postAdminLogin');
+
 //Đăng xuất
 Route::get('/teacher/logout','TeacherController@getLogout');
 
@@ -158,7 +168,7 @@ Route::post('/teacher/themex3/{lesson_id}', 'TeacherController@postThemex3');
 Route::post('/teacher/themex4/{lesson_id}', 'TeacherController@postThemex4');
 
 //list student
-Route::get('/teacher/student', 'TeacherController@getStudent')->middleware('teacherLogin');
+Route::get('/teacher/student', 'TeacherController@getStudent')->middleware('adminLogin');
 
 // Chấm bài
 Route::get('/teacher/chambai/{lesson_id}', 'TeacherController@getChamBai')->middleware('teacherLogin');
