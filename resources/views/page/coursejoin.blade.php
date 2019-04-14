@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 <div class="header-title">
-	<h1>STUDENT PROFILE</h1>
+	<h1>Các Khóa Học Tham Gia</h1>
 </div>
 <section class="courses">
 		<!-- .courses -->
@@ -32,20 +32,9 @@
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-8">	
 					<!-- .student-info -->
-					<div class="student-info">
-						<h3>{{$user->name}} </h3>
-						<ul>
-							<li><span>các khóa học tham gia :</span> 
-							@foreach($register as $r) 
-								{{$r->course->title}}; 
-							@endforeach
-							</li>
-							<li><span>Địa chỉ :</span> {{$user->address}}</li>
-							<li><span>E-mail:</span> {{$user->email}}</li>
-							<li><span>Số điện thoại:</span> {{$user->phone_number}}</li>
-							<li><span>Balance :</span> {{$user->balance}} VNĐ</li>
-						</ul>
-					</div>
+					@foreach($register as $r)
+					<button class="block"><a href="/student/infocource/{{$r->course->id}}"> {{$r->course->title}} </a></button>
+					@endforeach
 					<!-- .student-info -->
 				</div>				
 				
@@ -53,4 +42,27 @@
 		</div>
 		<!-- /.courses -->
 	</section>
+
+	<style type="text/css">
+		.block {
+		  display: block;
+		  width: 100%;
+		  border: none;
+		  background-color: #4CAF50;
+		  color: white;
+		  padding: 14px 28px;
+		  font-size: 16px;
+		  cursor: pointer;
+		  text-align: center;
+		}
+
+		.block:hover {
+		  background-color: #ddd;
+		  color: white;
+		}
+
+		.block a{
+			color: white;
+		}
+	</style>
 @endsection

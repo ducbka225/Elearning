@@ -100,6 +100,83 @@ class PageController extends Controller
         return view('page.info', compact('user', 'register'));
     }
 
+    public function postUpdateInfo(Request $req){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $user->name = $req->name;
+        $user->address = $req->address;
+        $user->phone_number = $req->phone;
+
+        if($req->hasFile('avatar')){
+            $file = $req->File('avatar');
+            $name = $file->getClientOriginalName();
+            $duoi = $file->getClientOriginalExtension();
+            if($duoi == 'jpg' || $duoi == 'png'){
+                $savefile = str_random(4)."_".$name;
+            while(file_exists("source/assets/audio/".$savefile))
+            {
+                $savefile = str_random(4)."_".$name;
+            }
+            $file->move("source/assets/img/", $savefile);
+            $user->avatar = $savefile;  
+            }
+
+            else{
+
+                return redirect()->back()->with('loi', 'file không đúng định dạng');
+            }
+    
+        }
+        else{
+            $user->avatar = $user->avatar;
+        }  
+        $user->save();     
+
+        return redirect()->back()->with('message', 'Cập Nhật Thành Công!');
+    }
+
+    public function getUpdateInfo(){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+
+        return view('page.update_info', compact('user'));
+    }
+
+    public function getChangePassword(){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        return view('page.changepassword', compact('user'));
+    }
+
+    public function postChangePassword(Request $req){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+
+        if(\Hash::check($req->oldpassword, $user->password)){
+
+            if($req->password == $req->repassword){
+                $user->password == \Hash::make($req->password);
+            }
+                
+            else{
+                return redirect()->back()->with('loi', 'Mật khẩu nhập lại không khớp!');
+            }  
+        }
+        else{
+            return redirect()->back()->with('loi', 'Mật khẩu cũ không chính xác');
+        }
+        $user->save();
+
+        return redirect()->back()->with('message', 'Đổi mật khẩu thành công!');
+    }
+
+    public function getCourseJoin(){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $register = Register::where('id_user', $id)->get();
+        return view('page.coursejoin', compact('user', 'register'));
+    }
+
     public function getTeacher(){
 
         $teacher = User:: where('role', '1')->get();

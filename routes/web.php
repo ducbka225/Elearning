@@ -56,6 +56,16 @@ Route::post('comment_lesson/{lesson_id}', 'CommentController@postCommentLesson')
 
 Route::get('student/info', 'PageController@getStudentInfo')->middleware('studentLogin');
 
+Route::get('student/updateinfo', 'PageController@getUpdateInfo')->middleware('studentLogin');
+
+Route::post('student/updateinfo', 'PageController@postUpdateInfo')->middleware('studentLogin');
+
+Route::get('changepassword', 'PageController@getChangePassword')->middleware('studentLogin');
+Route::post('changepassword', 'PageController@postChangePassword');
+
+Route::get('student/coursejoin', 'PageController@getCourseJoin')->middleware('studentLogin');
+
+Route::get('/student/infocource/{course_id}', 'PageController@getCourseInfo')middleware('studentLogin');
 //list teacher
 Route::get('teacher', 'PageController@getTeacher');
 
