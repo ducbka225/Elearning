@@ -113,7 +113,7 @@ class PageController extends Controller
             $duoi = $file->getClientOriginalExtension();
             if($duoi == 'jpg' || $duoi == 'png'){
                 $savefile = str_random(4)."_".$name;
-            while(file_exists("source/assets/audio/".$savefile))
+            while(file_exists("source/assets/img/".$savefile))
             {
                 $savefile = str_random(4)."_".$name;
             }
@@ -181,6 +181,10 @@ class PageController extends Controller
 
         $teacher = User:: where('role', '1')->get();
         return view('page.teacher', compact('teacher'));
+    }
+
+    public function getCourseInfo($course_id){
+        
     }
 
 }

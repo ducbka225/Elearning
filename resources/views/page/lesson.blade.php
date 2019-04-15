@@ -11,7 +11,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<ul>
-							<li><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i></a></li>
+							<li><a href="student/info"><i class="fa fa-user-o" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i> <sup>10</sup></a></li>
 							<li><a href="#"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
@@ -19,16 +19,8 @@
 								<i class="fa fa-cog" aria-hidden="true"></i></a>
 								<!-- .setting .dropdown-menu -->
 								 <div class="setting dropdown-menu">
-									 <img src="source/assets/img/{{$chitietcourse->course_avatar}}" alt="dropdown-setting-img"/>
 									 <div class="setting-ul">
-									 	<ul>
-											<li>
-												<div class="search-box">
-													<input type="text" placeholder="Search Type"/>
-													<a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-												</div>
-											</li> 
-											<li><a href="#">Quick Question <span>20</span></a></li> 
+									 	<ul>										
 											<li><a href="#">Total Videos</a></li> 
 											<li><a href="#">Video Lecture</a></li> 
 											<li><a href="#">Assignment</a></li> 
@@ -75,14 +67,15 @@
 					</h2>
 					<div class="row">
 						<ul>
+							<?php $i =0;?>
 							@foreach($lesson as $l)
 							<li style="width: 100%">
 								<div class="upcommin-text-outer">
 								<div class="upcomming-img">
-								<label style="margin-left: 20px">{{$l->lesson_number}}</label>
+								<label style="margin-left: 20px">{{++$i}}</label>
 								</div>
 								<div class="upcommin-text">
-									<a href="{{route('lesson', $l->id)}}"><p>{{$l->name}}</p></a>
+									<a href="{{route('lesson', $l->id)}}"><p>{{$l->name}} </p></a>
 									<span><i class="fa fa-clock-o" aria-hidden="true"></i> {{$l->created_at}}</span>
 								</div>
 								</div>

@@ -12,6 +12,10 @@ class Lesson extends Model
     	return $this->hasMany('App\Comment', 'id_lesson', 'id');
     }
 
+    public function user_lesson(){
+        return $this->hasMany('App\User_Lesson', 'id_lesson', 'id');
+    }
+
     public function ex1(){
     	return $this->hasMany('App\Ex1', 'id_lesson', 'id');
     }

@@ -24,6 +24,7 @@
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="source/assets/css/style.css" type="text/css">
 	<link rel="stylesheet" href="source/assets/css/custom.css" type="text/css">
+	<link rel="stylesheet" href="source/assets/css/w3.css" type="text/css">
 	<!-- Owl Carousel Assets -->
 	<link href="source/assets/owl-carousel/owl.carousel.css" rel="stylesheet">
 	<link href="source/assets/owl-carousel/owl.theme.css" rel="stylesheet">

@@ -33,7 +33,21 @@
 				<div class="col-xs-12 col-sm-6 col-md-8">	
 					<!-- .student-info -->
 					@foreach($register as $r)
-					<button class="block"><a href="/student/infocource/{{$r->course->id}}"> {{$r->course->title}} </a></button>
+					<div class="col-md-8">
+						<div class="w3-green w3-center">{{$r->course->title}}</div>
+						<div class="w3-grey">
+					  	<div class="w3-container w3-red w3-center" hidden style="width:50%">
+					  		50%
+						</div>
+					</div>
+					</div>
+					
+					<div class="col-md-2 w3-green">
+						<a href="lessonfirst/{{$r->course->id}}">Chi tiết >></a>
+					</div>
+					
+					
+					<br>
 					@endforeach
 					<!-- .student-info -->
 				</div>				

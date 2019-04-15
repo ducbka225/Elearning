@@ -8,6 +8,12 @@
                         <h1 class="page-header">Course
                             <small>List</small>
                         </h1>
+                        @if(Session::has('message'))
+                        <div class="alert alert-success">{{Session::get('message')}}</div>
+                        @endif
+                        @if(Session::has('loi'))
+                        <div class="alert alert-danger">{{Session::get('loi')}}</div>
+                        @endif
                     </div>
                     <!-- /.col-lg-12 -->
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -33,7 +39,7 @@
                                 <td class="center"></td>
                                 <td class="center">
                                 	<a href="#"><i class="fa fa-trash-o  fa-fw"></i></a> | 
-                                	<a href="#">
+                                	<a href="/admin/addcourse" title="Thêm Khóa Học">
 							          <span class="glyphicon glyphicon-plus"></span>
 							        </a> | 
 							        <a href="/teacher/lesson/{{$lc->id}}">

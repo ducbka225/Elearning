@@ -233,8 +233,8 @@ class TeacherController extends Controller
     }
 
     // list Student
-    public function getStudent(){
-        $student = User::where('role', 0)->get();
+    public function getUser(){
+        $student = User::all();
         return view('teacher.pages.liststudent', compact('student'));
     }
 

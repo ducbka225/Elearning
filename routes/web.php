@@ -65,7 +65,7 @@ Route::post('changepassword', 'PageController@postChangePassword');
 
 Route::get('student/coursejoin', 'PageController@getCourseJoin')->middleware('studentLogin');
 
-Route::get('/student/infocource/{course_id}', 'PageController@getCourseInfo')middleware('studentLogin');
+Route::get('/student/infocource/{course_id}', 'PageController@getCourseInfo')->middleware('studentLogin');
 //list teacher
 Route::get('teacher', 'PageController@getTeacher');
 
@@ -177,8 +177,7 @@ Route::post('/teacher/themex2/{lesson_id}', 'TeacherController@postThemex2');
 Route::post('/teacher/themex3/{lesson_id}', 'TeacherController@postThemex3');
 Route::post('/teacher/themex4/{lesson_id}', 'TeacherController@postThemex4');
 
-//list student
-Route::get('/teacher/student', 'TeacherController@getStudent')->middleware('adminLogin');
+
 
 // Chấm bài
 Route::get('/teacher/chambai/{lesson_id}', 'TeacherController@getChamBai')->middleware('teacherLogin');
@@ -208,3 +207,19 @@ Route::get('/teacher/xoacomment/{$comment_id}', 'TeacherController@getXoaComment
 
 //callvideo
 Route::get('/callvideo', 'PageController@getCallVideo');
+
+// <--------------------------------------------------------->
+// Admin
+Route::get('/admin/addcourse', 'AdminController@getAddCourse')->middleware('adminLogin');
+Route::post('/admin/addcourse', 'AdminController@postAddCourse');
+//list user
+Route::get('/admin/user', 'TeacherController@getUser')->middleware('adminLogin');
+Route::get('/amdin/adduser', 'AdminController@getAddUser')->middleware('adminLogin');
+Route::post('/amdin/adduser', 'AdminController@postAddUser');
+Route::get('/admin/deleteuser/{id}', 'AdminController@deleteUser')->middleware('adminLogin');
+
+//category
+Route::get('/admin/listcategory', 'AdminController@getCategory')->middleware('adminLogin');
+Route::get('admin/deletecategory/{id}', 'AdminController@deleteCategory');
+Route::get('admin/addcategory', 'AdminController@getAddCategory')->middleware('adminLogin');
+Route::post('admin/addcategory', 'AdminController@postAddCategory');
