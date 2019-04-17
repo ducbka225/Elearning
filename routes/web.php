@@ -208,6 +208,9 @@ Route::get('/teacher/xoacomment/{$comment_id}', 'TeacherController@getXoaComment
 //callvideo
 Route::get('/callvideo', 'PageController@getCallVideo');
 
+//Chat
+Route::get('/chat/{course_id}', 'ChatController@getChat');
+
 // <--------------------------------------------------------->
 // Admin
 Route::get('/admin/addcourse', 'AdminController@getAddCourse')->middleware('adminLogin');

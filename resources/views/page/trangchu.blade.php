@@ -62,7 +62,7 @@
 						<!-- .viewed-courses-box -->
 						<div class="viewed-courses-box">
 							<div class="viewed-courses-img">
-								<img src="source/assets/img/{{$hc->course_avatar}}" alt="coureses-img1">
+								<img src="source/assets/img/{{$hc->course_avatar}}" width="270px" height="170px" alt="coureses-img1">
 							</div>
 							<div class="viewed-courses-text">
 								<a href="{{route('chitiet', $hc->id)}}">
