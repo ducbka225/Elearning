@@ -11,7 +11,7 @@
 					<!-- .student-outer -->
 					<div class="student-outer">
 						<div class="student-img">
-							<h6><img src="source/assets/img/{{$user->avatar}}" width="200px" ></h6>
+							<h6><img src="source/assets/img/{{$user->avatar}}" ></h6>
 						</div>
 						<div class="student-text">
 							<a href="student/updateinfo">
@@ -39,33 +39,24 @@
 			            @if(Session::has('loi'))
 			            <div class="alert alert-danger">{{Session::get('loi')}}</div>
 			            @endif
-						<form action="student/updateinfo" method="Post" enctype="multipart/form-data">
+						<form action="/student/naptien" method="Post" enctype="multipart/form-data">
 							{!!csrf_field()!!}
-						  <h2>Thay Đổi thông tin cá nhân</h2>
+						  <h2>Nạp Tiền</h2>
 						  <div class="input-container">
-						    <i class="fa fa-user icon"></i>
-						    <input class="input-field" type="text" value="{{$user->name}}" name="name">
+						    <i class="fa fa-key icon"></i>
+						    <input class="input-field" type="text" placeholder="Seri" name="seri" required>
 						  </div>
 
 						  <div class="input-container">
-						    <i class="fa fa-envelope icon"></i>
-						    <input class="input-field" type="text" placeholder="Email" name="email" readonly value="{{$user->email}}">
+						    <i class="fa fa-key icon"></i>
+						    <input class="input-field" type="password" placeholder="Mã thẻ" name="cardnumber" required>
 						  </div>
 
 						  <div class="input-container">
-						    <i class="fa fa-address-card-o icon"></i>
-						    <input class="input-field" type="text" value="{{$user->address}}" name="address" >
+						    <i class="fa fa-check-square icon"></i>
+						    <input class="input-field" type="number" placeholder="Mệnh Giá"  name="balance" required>
 						  </div>
-
-						  <div class="input-container">
-						    <i class="fa fa-phone-square icon"></i>
-						    <input class="input-field" type="text" value="{{$user->phone_number}}" name="phone" >
-						  </div>
-						  <div class="input-container">
-						  <i class="fa fa-photo icon"></i> 
-						  <input class="input-field" type="file" name="avatar" placeholder="Chọn ảnh đại diện">
-						  </div>
-						  <button type="submit" class="btn">Cập Nhật</button>
+						  <button type="submit" class="btn">Xác Nhận</button>
 						</form>
 					</div>
 					<!-- .student-info -->

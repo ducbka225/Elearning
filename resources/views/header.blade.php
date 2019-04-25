@@ -78,7 +78,7 @@
 										<a href="student/info">Thông tin Cá nhân</a>										
 									</li>
 									<li>
-										<a href="contact.html"><span>Liên Hệ</span></a>
+										<a href="contact"><span>Liên Hệ</span></a>
 									</li>
 									<li>
 										<a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>

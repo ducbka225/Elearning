@@ -23,7 +23,7 @@
 							<a href="student/coursejoin">
 								Khóa học tham gia
 						 	</a>	
-							<a href="#">
+							<a href="/student/naptien">
 							 	Nạp Tiền
 						 	</a>	
 						</div>
@@ -45,9 +45,7 @@
 					<div class="col-md-2 w3-green">
 						<a href="lessonfirst/{{$r->course->id}}">Chi tiết >></a>
 					</div>
-					
-					
-					<br>
+					<hr>
 					@endforeach
 					<!-- .student-info -->
 				</div>				

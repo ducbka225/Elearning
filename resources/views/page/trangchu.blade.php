@@ -76,9 +76,15 @@
 									<i class="fa fa-star" aria-hidden="true"></i>
 									<i class="fa fa-star-o" aria-hidden="true"></i>
 								</div>
+								
 								<div class="price">
-									{{$hc->price}} <span>$300</span>
+									@if($hc->price != 0)
+									{{number_format($hc->price)}} VNĐ<!-- <span>$300</span> -->
+									@else
+									<p style="color: red">MIỄN PHÍ </p>
+									@endif
 								</div>
+								
 							</div>
 						</div>
 						<!-- /.viewed-courses-box -->
@@ -100,7 +106,7 @@
 		<div class="container">
 			<div class="tittle">
 				<h2>
-					MEET OUR INSTRUCTOR
+					Giáo Viên
 					<span class="customNavigation">
 						<a class="btn prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
 						<a class="btn next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -112,226 +118,27 @@
 					<!-- #owl-demo -->
 					<div id="owl-demo" class="owl-carousel owl-theme">
 						<div class="item">
+							@foreach($teacher as $t)
 							<div class="col-xs-12 col-sm-4 col-md-4">
 								<!-- .instructor -->
 								<div class="instructor">
 									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img1.jpg" alt="instructor-img1" />
+										<img src="source/assets/img/{{$t->avatar}}" width="50%" alt="instructor-img1" />
 									</div>
 									<h4>
 										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
+									  	{{$t->name}}<br/>
+									  	<span>{{$t->email}}</span>
 									  </a>
 									</h4>
 									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
+										{{$t->exp}}
 									</p>
 								</div>
 								<!-- /.instructor -->
 							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4">
-								<!-- .instructor -->
-								<div class="instructor">
-									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img2.jpg" alt="instructor-img1" />
-									</div>
-									<h4>
-										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
-									  </a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
-									</p>
-								</div>
-								<!-- /.instructor -->
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4">
-								<!-- .instructor -->
-								<div class="instructor">
-									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img3.jpg" alt="instructor-img1" />
-									</div>
-									<h4>
-										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
-									  </a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
-									</p>
-								</div>
-								<!-- /.instructor -->
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4">
-								<!-- .instructor -->
-								<div class="instructor">
-									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img4.jpg" alt="instructor-img1" />
-									</div>
-									<h4>
-										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
-									  </a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
-									</p>
-								</div>
-								<!-- /.instructor -->
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4">
-								<!-- .instructor -->
-								<div class="instructor">
-									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img5.jpg" alt="instructor-img1" />
-									</div>
-									<h4>
-										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
-									  </a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
-									</p>
-								</div>
-								<!-- /.instructor -->
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4">
-								<!-- .instructor -->
-								<div class="instructor">
-									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img6.jpg" alt="instructor-img1" />
-									</div>
-									<h4>
-										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
-									  </a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
-									</p>
-								</div>
-								<!-- /.instructor -->
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-xs-12 col-sm-4 col-md-4">
-								<!-- .instructor -->
-								<div class="instructor">
-									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img1.jpg" alt="instructor-img1" />
-									</div>
-									<h4>
-										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
-									  </a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
-									</p>
-								</div>
-								<!-- /.instructor -->
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4">
-								<!-- .instructor -->
-								<div class="instructor">
-									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img2.jpg" alt="instructor-img1" />
-									</div>
-									<h4>
-										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
-									  </a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
-									</p>
-								</div>
-								<!-- /.instructor -->
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4">
-								<!-- .instructor -->
-								<div class="instructor">
-									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img3.jpg" alt="instructor-img1" />
-									</div>
-									<h4>
-										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
-									  </a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
-									</p>
-								</div>
-								<!-- /.instructor -->
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4">
-								<!-- .instructor -->
-								<div class="instructor">
-									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img4.jpg" alt="instructor-img1" />
-									</div>
-									<h4>
-										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
-									  </a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
-									</p>
-								</div>
-								<!-- /.instructor -->
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4">
-								<!-- .instructor -->
-								<div class="instructor">
-									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img5.jpg" alt="instructor-img1" />
-									</div>
-									<h4>
-										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
-									  </a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
-									</p>
-								</div>
-								<!-- /.instructor -->
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4">
-								<!-- .instructor -->
-								<div class="instructor">
-									<div class="instructor-img">
-										<img src="source/assets/img/instructor-img6.jpg" alt="instructor-img1" />
-									</div>
-									<h4>
-										<a href="#">
-									  	Felicia Richi Brown<br/>
-									  	<span>Instructor, Ui/Ux Design</span>
-									  </a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipisc elit. Praesent tellus urna, faucibus vel hendrerit Lorem ipsum dolor sit amet, consectetura Praesent tellus urna, fau
-									</p>
-								</div>
-								<!-- /.instructor -->
-							</div>
-						</div>
-
+							@endforeach
+						</div>					
 						<!-- /#owl-demo -->
 					</div>
 				</div>

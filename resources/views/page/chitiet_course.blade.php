@@ -10,37 +10,6 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<ul>
-							<li><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i> <sup>10</sup></a></li>
-							<li><a href="#"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
-							<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-								<i class="fa fa-cog" aria-hidden="true"></i></a>
-								<!-- .setting .dropdown-menu -->
-								 <div class="setting dropdown-menu">
-									 <img src="source/assets/img/{{$chitietcourse->course_avatar}}" alt="dropdown-setting-img"/>
-									 <div class="setting-ul">
-									 	<ul>
-											<li>
-												<div class="search-box">
-													<input type="text" placeholder="Search Type"/>
-													<a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-												</div>
-											</li> 
-											<li><a href="#">Quick Question <span>20</span></a></li> 
-											<li><a href="#">Total Videos</a></li> 
-											<li><a href="#">Video Lecture</a></li> 
-											<li><a href="#">Assignment</a></li> 
-											<li><a href="#">Notice Board</a></li> 
-											<li><a href="#">Exams</a></li> 
-											<li><a href="#">Results and Ranking</a></li> 
-										</ul>
-									 </div>
-								</div>
-								<!-- /.setting .dropdown-menu -->
-							</li>
-						</ul>
 					</div>
 				</div>
 			</div>
@@ -63,8 +32,16 @@
 							<li><span>Giáo viên :</span> {{$chitietcourse->teacher->name}} </li>
 							<li><span>Mã khóa học :</span> {{$chitietcourse->course_number}}</li>
 							<li><span>Thời lượng :</span> {{$chitietcourse->lenght}}</li>
+							<li><span>Học phí :</span> {{number_format($chitietcourse->price)}} VNĐ	</li>
+							<input type="hidden" id="price" value="{{$chitietcourse->price}}">
+							<input type="hidden" id="id_course" value="{{$chitietcourse->id}}">
+							<input type="hidden" id="balance" value="{{Auth::User()->balance}}">
 							<li><div class="star"><!-- <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i> -->  <span>{{$chitietcourse->course_rate}} /5 Điểm - {{$count_student}} Học viên tham gia </span></div></li>
-							<li><a href="{{route('lessonfirst', $chitietcourse->id)}}">Join Now</a></li>
+							@if($checkstudent != null)
+							<li><a href="{{route('lessonfirst', $chitietcourse->id)}}">Bắt Đầu Học</a></li>
+							@else
+							<li ><a id="register" href="javascript: void(0)">Đăng Ký</a></li>
+							@endif
 						</ul>
 					</div>
 					<!-- /.vedio-box -->
@@ -160,4 +137,53 @@
 			</div>
 		<!-- /.discussion-contaniner-->
 	</section>
+
+	<script>
+	$(document).ready(function(){
+		$("#register").click(function(e) {
+			e.preventDefault();
+			$.ajaxSetup({
+			        headers: {
+			            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			        }
+			});
+			var $price = $('#price').val();
+			var $course_id = $('#id_course').val();
+			var $balance = $('#balance').val();
+			var r = confirm("Bạn phải trả " + $price +" VNĐ");
+		   	if (r == true) {
+		   		if($balance > $price ){
+		   			$.ajax({
+		   				headers: {
+				          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				          },
+						url : '/registercourse',
+						data: {
+							'price' : $price,
+							'course_id' : $course_id,
+							'balance' : $balance
+						},
+						dataType : 'json',
+						type : 'POST',
+						success: function (data) {
+							console.log(data);
+							if (data.result == true) {
+								alert('Thanh toán thành công!');
+							} else {
+								window.location.reload();
+							}
+						}
+					});
+		   		}
+		   		else{
+		   			alert(' Tài Khoản của bạn không đủ vui lòng nạp thêm tiền');
+		   		}
+		     	
+		  	}
+		  	else{
+		  		window.location.reload();
+		  	}
+		});
+	});
+	</script>
 @endsection

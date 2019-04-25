@@ -9,10 +9,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>E-Learning</title>
 	<base href="{{asset('')}}">
 	<!-- Standard -->
 	<link rel="shortcut icon" href="source/assets/img/ficon.png">
+
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="source/assets/css/bootstrap.min.css" type="text/css">
 	<!-- Dropdownhover CSS -->

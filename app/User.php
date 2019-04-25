@@ -73,4 +73,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Submit_Ex4', 'id_user', 'id');
     }
 
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+    public function chat()
+    {
+        return $this->hasMany(Message::class);
+    }
+
 }

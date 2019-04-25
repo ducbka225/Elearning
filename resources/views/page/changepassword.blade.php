@@ -23,7 +23,7 @@
 							<a href="student/coursejoin">
 								Khóa học tham gia
 						 	</a>	
-							<a href="#">
+							<a href="/student/naptien">
 							 	Nạp Tiền
 						 	</a>	
 						</div>

@@ -23,7 +23,7 @@
 							<a href="student/coursejoin">
 								Khóa học tham gia
 						 	</a>	
-							<a href="#">
+							<a href="/student/naptien">
 							 	Nạp Tiền
 						 	</a>	
 						</div>
@@ -33,6 +33,12 @@
 				<div class="col-xs-12 col-sm-6 col-md-8">	
 					<!-- .student-info -->
 					<div class="student-info">
+						@if(Session::has('message'))
+			            <div class="alert alert-success">{{Session::get('message')}}</div>
+			            @endif
+			            @if(Session::has('loi'))
+			            <div class="alert alert-danger">{{Session::get('loi')}}</div>
+			            @endif
 						<h3>{{$user->name}} </h3>
 						<ul>
 							<li><span>các khóa học tham gia :</span> 
@@ -43,7 +49,7 @@
 							<li><span>Địa chỉ :</span> {{$user->address}}</li>
 							<li><span>E-mail:</span> {{$user->email}}</li>
 							<li><span>Số điện thoại:</span> {{$user->phone_number}}</li>
-							<li><span>Balance :</span> {{$user->balance}} VNĐ</li>
+							<li><span>Balance :</span> {{number_format($user->balance)}} VNĐ</li>
 						</ul>
 					</div>
 					<!-- .student-info -->

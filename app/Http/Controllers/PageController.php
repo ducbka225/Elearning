@@ -8,7 +8,10 @@ use App\Category;
 use App\Course;
 use App\Lesson;
 use App\Register;
+use App\FeedBack;
+use App\User_Lesson;
 use Auth;
+use DB;
 class PageController extends Controller
 {
     function __construct(){
@@ -18,7 +21,8 @@ class PageController extends Controller
 
     public function getIndex(){
         $hotcourse = Course::where('level', 1)->get();
-    	return view('page.trangchu', compact('hotcourse', $hotcourse));
+        $teacher = User::where('role', 1)->get();
+    	return view('page.trangchu', compact('hotcourse', 'teacher'));
     }
 
     public function getSignup(){
@@ -49,6 +53,7 @@ class PageController extends Controller
         $user->email = $req->email;
         $user->address = "Hà Nội";
         $user->role = 0;
+        $user->avatar = "avatar.jpg";
         $user->password = \Hash::make($req->password);
         $user->save();
         return redirect('signup')->with('success', 'Tạo tài khoản thành công!');
@@ -66,7 +71,8 @@ class PageController extends Controller
         $chitietcourse = Course::where('id', $courseid)->first();
         $lesson = Lesson::where('id_course', $courseid)->get();
         $count_student = Register::where('id_course', $courseid)->count('id_user');
-        return view('page.chitiet_course', compact('chitietcourse', 'lesson', 'count_student'));
+        $checkstudent = Register::where('id_course', $courseid)->where('id_user', Auth::User()->id)->first();
+        return view('page.chitiet_course', compact('chitietcourse', 'lesson', 'count_student', 'checkstudent'));
     }
 
     public function getLessonFirst($course_id){
@@ -82,8 +88,16 @@ class PageController extends Controller
         $course_id = $lessonshow->id_course;
         $chitietcourse = Course::where('id', $course_id)->first();
         $lesson = Lesson::where('id_course', $course_id)->get();
+        $check_lesson = User_Lesson::where('id_user', Auth::User()->id)->where('id_lesson', $lesson_id)->count('id');
+        // $user_lesson = User_Lesson::where('id_user', Auth::User()->id)->get();
+        $user_lesson = User_Lesson::select('id_lesson')
+            ->where('id_user', Auth::User()->id)
+            ->orderBy('id', 'desc')
+            ->get();
+        $inputs = $user_lesson->pluck('id_lesson')->toArray();
+        // dd($inputs);
         $count_student = Register::where('id_course', $course_id)->count('id_user');
-        return view('page.lesson', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student'));
+        return view('page.lesson', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student', 'user_lesson', 'check_lesson', 'inputs'));
     }
 
     public function getCallVideo(){
@@ -183,8 +197,42 @@ class PageController extends Controller
         return view('page.teacher', compact('teacher'));
     }
 
-    public function getCourseInfo($course_id){
-        
+    public function getNapTien(){
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        return view('page.naptien', compact('user'));
     }
 
+    public function postNapTien(Request $req){
+        $user = User::where('id', Auth::User()->id)->first();
+        if($req->seri != 123123 || $req->cardnumber != 123123){
+            return redirect('student/naptien')->with('loi', 'Thẻ không hợp lệ');
+        }
+        $user->balance = $req->balance;
+        $user->save();
+        return redirect('student/info')->with('message', 'Đã Nạp Tiền Vào Tài Khoản');
+    }
+
+    public function getContact(){
+        return view('page.contact');
+    }
+
+    public function postContact(Request $req){
+        $contact = new FeedBack;
+        $contact->name = $req->name;
+        $contact->phone = $req->phone;
+        $contact->email = $req->email;
+        $contact->content= $req->content;
+        $contact->save();
+        return redirect()->back()->with('message', 'Đã gửi phản hồi');
+    }
+
+    public function getDoneLesson($id){
+        $user_lesson = new User_Lesson;
+        $user_lesson->progress = 1;
+        $user_lesson->id_lesson = $id;
+        $user_lesson->id_user = Auth::User()->id;
+        $user_lesson->save();
+        return redirect()->back();
+    }
 }

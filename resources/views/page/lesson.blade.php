@@ -12,9 +12,9 @@
 					<div class="col-md-12">
 						<ul>
 							<li><a href="student/info"><i class="fa fa-user-o" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+							<li><a href="/chat/{{$chitietcourse->id}}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i> <sup>10</sup></a></li>
-							<li><a href="/chat/{{$chitietcourse->id}}" title="Chat trực tuyến"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
+							<li><a href="chatroom" title="Chat trực tuyến"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
 							<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
 								<i class="fa fa-cog" aria-hidden="true"></i></a>
 								<!-- .setting .dropdown-menu -->
@@ -59,6 +59,10 @@
 						</ul>
 					</div>
 					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Làm Bài Tập</button>
+					<hr>
+					@if($check_lesson == 0)
+					<button type="button" class="btn btn-success"><a href="donelesson/{{$lessonshow->id}}">Đã Học</a></button>
+					@endif
 					<!-- /.vedio-box -->
 				</div>
 				<div class="upcomming-container col-xs-12 col-sm-6 col-md-6 wow fadeInRight  animated">
@@ -75,14 +79,29 @@
 								<label style="margin-left: 20px">{{++$i}}</label>
 								</div>
 								<div class="upcommin-text">
-									<a href="{{route('lesson', $l->id)}}"><p>{{$l->name}} </p></a>
+									
+										<p>
+											<a href="{{route('lesson', $l->id)}}">
+											{{$l->name}} 
+											</a>
+											<?php $id = $l->id; ?>
+											@if(in_array($id, $inputs))
+
+											<a href="#" style="margin-left: 20px">
+									          <i class="icon-ok-sign icon" style="color:green"></i>
+									        </a>
+											    
+											@endif 
+										</p>
+
+									</a>
+									
 									<span><i class="fa fa-clock-o" aria-hidden="true"></i> {{$l->created_at}}</span>
 								</div>
 								</div>
 							</li>
 							@endforeach
-						</ul>
-						
+						</ul>			
 					</div>
 				</div><!-- Close div upcoming -->
 			</div>

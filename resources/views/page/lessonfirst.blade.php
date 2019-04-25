@@ -12,9 +12,9 @@
 					<div class="col-md-12">
 						<ul>
 							<li><a href="student/info"><i class="fa fa-user-o" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+							<li><a href="/chat/{{$chitietcourse->id}}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
 							<li><a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i> <sup>10</sup></a></li>
-							<li><a href="#"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
+							<li><a href="chatroom"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
 							<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
 								<i class="fa fa-cog" aria-hidden="true"></i></a>
 								<!-- .setting .dropdown-menu -->

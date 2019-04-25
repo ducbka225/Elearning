@@ -45,9 +45,16 @@ Route::get('course-by-category/{category}',[
 Route::get('chi-tiet/{courseid}',[
 	'as'=>'chitiet',
 	'uses'=>'PageController@getChiTiet'
-]);
+])->middleware('studentLogin');
 
-//comment khóa học\
+Route::post('registercourse', 'AjaxController@postRegister');
+
+Route::get('contact', 'PageController@getContact')->middleware('studentLogin');
+Route::post('contact', 'PageController@postContact')->middleware('studentLogin');
+
+Route::get('donelesson/{id}', 'PageController@getDoneLesson')->middleware('studentLogin');
+
+//comment khóa học
 Route::post('comment_course/{course_id}', 'CommentController@postCommentCourse');
 
 Route::post('comment_lesson/{lesson_id}', 'CommentController@postCommentLesson');
@@ -66,6 +73,10 @@ Route::post('changepassword', 'PageController@postChangePassword');
 Route::get('student/coursejoin', 'PageController@getCourseJoin')->middleware('studentLogin');
 
 Route::get('/student/infocource/{course_id}', 'PageController@getCourseInfo')->middleware('studentLogin');
+
+Route::get('/student/naptien', 'PageController@getNapTien')->middleware('studentLogin');
+Route::post('/student/naptien', 'PageController@postNapTien')->middleware('studentLogin');
+
 //list teacher
 Route::get('teacher', 'PageController@getTeacher');
 
@@ -210,6 +221,12 @@ Route::get('/callvideo', 'PageController@getCallVideo');
 
 //Chat
 Route::get('/chat/{course_id}', 'ChatController@getChat');
+Route::get('/chatfriend/{id}', 'ChatController@getChatFriend');
+Route::post('/chatfriend', 'ChatController@postChatFriend');
+
+Route::get('/chatroom', 'ChatsController@chatroom');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
 
 // <--------------------------------------------------------->
 // Admin
