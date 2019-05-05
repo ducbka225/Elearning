@@ -35,4 +35,21 @@ class Course extends Model
     public function users(){
     	return $this->hasManyThrough('App\User', 'App\Register', 'id_user', 'id_course', 'id');
     }
+
+
+    public function mid_test(){
+        return $this->hasMany('App\Mid_Test', 'id_course', 'id');
+    }
+
+    public function mid_test_result(){
+        return $this->hasMany('App\Mid_Test_Result', 'id_course', 'id');
+    }
+
+    public function end_test(){
+        return $this->hasMany('App\End_Test', 'id_course', 'id');
+    }
+
+    public function end_test_result(){
+        return $this->hasMany('App\End_Test_Result', 'id_course', 'id');
+    }
 }

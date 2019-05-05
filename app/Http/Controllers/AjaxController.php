@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Register;
+use Auth;
+use App\User;
 
 class AjaxController extends Controller
 {
@@ -18,7 +20,7 @@ class AjaxController extends Controller
     	$register->save();
 
     	$user = User::find(Auth::User()->id);
-    	$user->balance = $user->balance - $req->balance;
+    	$user->balance = $user->balance - $req->price;
     	$user->save();
         $result = true;
     	return response()->json($result);

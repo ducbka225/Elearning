@@ -13,7 +13,23 @@
 						<ul>
 							<li><a href="student/info"><i class="fa fa-user-o" aria-hidden="true"></i></a></li>
 							<li><a href="/chat/{{$chitietcourse->id}}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i> <sup>10</sup></a></li>
+							<li>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+								<i class="fa fa-bell-o" aria-hidden="true"></i>
+								 <sup>2</sup>
+								</a>
+								<div class="setting dropdown-menu">
+									 <div class="setting-ul">
+									 	<ul>
+									 	@if($mid_test_result != 0)									<li><a href="/mid-test-result/{{$chitietcourse->id}}">Thi giữa kỳ</a></li> 
+									 	@else
+											<li><a href="/mid-test/{{$chitietcourse->id}}">Thi giữa kỳ</a></li> 
+										@endif
+											<li><a href="#">Thi cuối kỳ</a></li> 
+										</ul>
+									 </div>
+								</div>
+							</li>
 							<li><a href="chatroom" title="Chat trực tuyến"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
 							<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
 								<i class="fa fa-cog" aria-hidden="true"></i></a>
@@ -21,11 +37,7 @@
 								 <div class="setting dropdown-menu">
 									 <div class="setting-ul">
 									 	<ul>										
-											<li><a href="#">Total Videos</a></li> 
-											<li><a href="#">Video Lecture</a></li> 
-											<li><a href="#">Assignment</a></li> 
-											<li><a href="#">Notice Board</a></li> 
-											<li><a href="#">Exams</a></li> 
+											
 											<li><a href="#">Results and Ranking</a></li> 
 										</ul>
 									 </div>
@@ -87,10 +99,9 @@
 											<?php $id = $l->id; ?>
 											@if(in_array($id, $inputs))
 
-											<a href="#" style="margin-left: 20px">
-									          <i class="icon-ok-sign icon" style="color:green"></i>
-									        </a>
-											    
+											<label href="#" style="margin-left: 20px">
+									          <img width="15px" src="source/assets/img/done.png">
+									        </label>
 											@endif 
 										</p>
 

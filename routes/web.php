@@ -47,6 +47,13 @@ Route::get('chi-tiet/{courseid}',[
 	'uses'=>'PageController@getChiTiet'
 ])->middleware('studentLogin');
 
+//test
+Route::get('mid-test/{course_id}', 'TestController@getMidTest')->middleware('studentLogin');
+Route::post('/post-mid-test', 'TestController@postMidTest');
+
+Route::get('mid-test-result/{course_id}', 'TestController@getMidTestResult')->name('mid-test-result')->middleware('studentLogin');
+//
+
 Route::post('registercourse', 'AjaxController@postRegister');
 
 Route::get('contact', 'PageController@getContact')->middleware('studentLogin');

@@ -558,7 +558,7 @@ nav {
 }
 .setting-ul {
 	margin: 30px auto;
-	width: 80%;
+	width: 100%;
 }
 .setting-ul>ul {
 	float: inherit;

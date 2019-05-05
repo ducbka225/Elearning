@@ -10,6 +10,8 @@ use App\Lesson;
 use App\Register;
 use App\FeedBack;
 use App\User_Lesson;
+use App\Mid_Test;
+use App\Mid_Test_Result;
 use Auth;
 use DB;
 class PageController extends Controller
@@ -97,7 +99,14 @@ class PageController extends Controller
         $inputs = $user_lesson->pluck('id_lesson')->toArray();
         // dd($inputs);
         $count_student = Register::where('id_course', $course_id)->count('id_user');
-        return view('page.lesson', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student', 'user_lesson', 'check_lesson', 'inputs'));
+
+        $id_user = Auth::id();
+        $mid_test = Mid_Test::where('id_course', $course_id)->orderby('id')->get();
+        $id_midtest_first = $mid_test->first()->id;
+        $mid_test_result = Mid_Test_Result::where('id_midtest',$id_midtest_first)
+                                            ->where('id_user', $id_user)->count('id');
+
+        return view('page.lesson', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student', 'user_lesson', 'check_lesson', 'inputs', 'mid_test_result'));
     }
 
     public function getCallVideo(){

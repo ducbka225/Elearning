@@ -10,29 +10,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<ul>
-							<li><a href="student/info"><i class="fa fa-user-o" aria-hidden="true"></i></a></li>
-							<li><a href="/chat/{{$chitietcourse->id}}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i> <sup>10</sup></a></li>
-							<li><a href="chatroom"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
-							<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-								<i class="fa fa-cog" aria-hidden="true"></i></a>
-								<!-- .setting .dropdown-menu -->
-								 <div class="setting dropdown-menu">
-									 <div class="setting-ul">
-									 	<ul>										
-											<li><a href="#">Total Videos</a></li> 
-											<li><a href="#">Video Lecture</a></li> 
-											<li><a href="#">Assignment</a></li> 
-											<li><a href="#">Notice Board</a></li> 
-											<li><a href="#">Exams</a></li> 
-											<li><a href="#">Results and Ranking</a></li> 
-										</ul>
-									 </div>
-								</div>
-								<!-- /.setting .dropdown-menu -->
-							</li>
-						</ul>
+						
 					</div>
 				</div>
 			</div>

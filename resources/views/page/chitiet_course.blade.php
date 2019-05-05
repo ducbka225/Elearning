@@ -138,52 +138,52 @@
 		<!-- /.discussion-contaniner-->
 	</section>
 
-	<script>
-	$(document).ready(function(){
-		$("#register").click(function(e) {
-			e.preventDefault();
-			$.ajaxSetup({
-			        headers: {
-			            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			        }
-			});
-			var $price = $('#price').val();
-			var $course_id = $('#id_course').val();
-			var $balance = $('#balance').val();
-			var r = confirm("Bạn phải trả " + $price +" VNĐ");
-		   	if (r == true) {
-		   		if($balance > $price ){
-		   			$.ajax({
-		   				headers: {
-				          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				          },
-						url : '/registercourse',
-						data: {
-							'price' : $price,
-							'course_id' : $course_id,
-							'balance' : $balance
-						},
-						dataType : 'json',
-						type : 'POST',
-						success: function (data) {
-							console.log(data);
-							if (data.result == true) {
-								alert('Thanh toán thành công!');
-							} else {
-								window.location.reload();
+	<input type="hidden" value="{{csrf_token()}}" id="token"/>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#register").click(function() {
+				$.ajaxSetup({
+				    headers: {
+				        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				    }
+				});
+				var price = $('#price').val();
+				var course_id = $('#id_course').val();
+				var balance = $('#balance').val();
+				var token = $('#token').val();
+				var r = confirm("Bạn phải trả " + price +" VNĐ");
+			   	if (r == true) {
+			   		if(balance > price ){
+			   			var dataString = "price="+price+"&course_id="+course_id+"&balance="+balance+"&_token="+token;
+			   			$.ajax({
+			   				type : 'POST',
+							url : "<?php echo url('/registercourse') ?>",
+							data: dataString,
+
+							success: function (result) {
+								// console.log(data);
+								if (result == true) {
+									alert('Thanh toán thành công!');
+									window.location.reload();
+								} else {
+									window.location.reload();
+								}
 							}
-						}
-					});
-		   		}
-		   		else{
-		   			alert(' Tài Khoản của bạn không đủ vui lòng nạp thêm tiền');
-		   		}
-		     	
-		  	}
-		  	else{
-		  		window.location.reload();
-		  	}
+						});
+
+						// $.post('/registercourse', {price:$price, course_id:$course_id, balance:$balance}, function(data){
+
+						// });
+			   		}
+			   		else{
+			   			alert(' Tài Khoản của bạn không đủ vui lòng nạp thêm tiền');
+			   		}
+			     	
+			  	}
+			  	else{
+			  		window.location.reload();
+			  	}
+			});
 		});
-	});
 	</script>
 @endsection

@@ -83,4 +83,20 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
+    public function mid_test(){
+        return $this->hasMany('App\Mid_Test', 'id_user', 'id');
+    }
+
+    public function mid_test_result(){
+        return $this->hasMany('App\Mid_Test_Result', 'id_user', 'id');
+    }
+
+    public function end_test(){
+        return $this->hasMany('App\End_Test', 'id_user', 'id');
+    }
+
+    public function end_test_result(){
+        return $this->hasMany('App\End_Test_Result', 'id_user', 'id');
+    }
+
 }
