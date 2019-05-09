@@ -69,7 +69,7 @@
 					    <div class="col-sm-4" style="background-color:lavenderblush;">
 					    	<label>Bài Tập 4</label>
 					    	 @if($ex4 == null)
-				            <a href="/teacher/addlesson/">
+				            <a href="">
 				              <button type="button" class="btn btn-primary">Thêm Câu hỏi</button>
 				            </a>
 				            @else

@@ -54,6 +54,7 @@
 
 					<div id="London" class="tabcontent">
 					  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+					  <h4><img src="source/assets/img/{{$chitietcourse->teacher->avatar}}" width="420px" height="220px" alt="coureses-img1"></h4>
 					  <h3>{{$chitietcourse->teacher->name}}</h3>
 					  <p>{{$chitietcourse->teacher->exp}}</p>
 					</div>

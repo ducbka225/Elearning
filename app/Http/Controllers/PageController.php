@@ -12,6 +12,8 @@ use App\FeedBack;
 use App\User_Lesson;
 use App\Mid_Test;
 use App\Mid_Test_Result;
+use App\End_Test;
+use App\End_Test_Result;
 use Auth;
 use DB;
 class PageController extends Controller
@@ -82,7 +84,24 @@ class PageController extends Controller
         $lesson = Lesson::where('id_course', $course_id)->get();
         $lessonshow = Lesson::where('id_course', $course_id)->orderBy('id')->first();
         $count_student = Register::where('id_course', $course_id)->count('id_user');
-        return view('page.lessonfirst', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student'));
+
+        $user_lesson = User_Lesson::select('id_lesson')
+            ->where('id_user', Auth::User()->id)
+            ->orderBy('id', 'desc')
+            ->get();
+        $inputs = $user_lesson->pluck('id_lesson')->toArray();
+
+        $id_user = Auth::id();
+        $mid_test = Mid_Test::where('id_course', $course_id)->orderby('id')->get();
+        $id_midtest_first = $mid_test->first()->id;
+        $mid_test_result = Mid_Test_Result::where('id_midtest',$id_midtest_first)
+                                            ->where('id_user', $id_user)->count('id');
+                                   
+        $end_test = End_Test::where('id_course', $course_id)->orderby('id')->get();
+        $id_endtest_first = $end_test->first()->id;
+        $end_test_result = End_Test_Result::where('id_endtest',$id_endtest_first)
+                                            ->where('id_user', $id_user)->count('id');
+        return view('page.lessonfirst', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student', 'user_lesson', 'inputs','mid_test_result','end_test_result'));
     }
 
     public function getLesson($lesson_id){
@@ -100,13 +119,10 @@ class PageController extends Controller
         // dd($inputs);
         $count_student = Register::where('id_course', $course_id)->count('id_user');
 
-        $id_user = Auth::id();
-        $mid_test = Mid_Test::where('id_course', $course_id)->orderby('id')->get();
-        $id_midtest_first = $mid_test->first()->id;
-        $mid_test_result = Mid_Test_Result::where('id_midtest',$id_midtest_first)
-                                            ->where('id_user', $id_user)->count('id');
+      
+                                    
 
-        return view('page.lesson', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student', 'user_lesson', 'check_lesson', 'inputs', 'mid_test_result'));
+        return view('page.lesson', compact('chitietcourse', 'lesson', 'lessonshow', 'count_student', 'user_lesson', 'check_lesson', 'inputs', 'mid_test_result','end_test_result'));
     }
 
     public function getCallVideo(){
@@ -205,6 +221,13 @@ class PageController extends Controller
         $teacher = User:: where('role', '1')->get();
         return view('page.teacher', compact('teacher'));
     }
+     public function getTeacherInfo($id){
+        
+         $user = User::find($id);
+        
+        return view('page.teacherinfor', compact('user'));
+    }
+
 
     public function getNapTien(){
         $id = Auth::user()->id;

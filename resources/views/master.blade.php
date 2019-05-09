@@ -38,6 +38,8 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
+  	<!-- <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'> -->
+
 </head>
 
 <body>
@@ -72,6 +74,11 @@
 	<script src="source/assets/owl-carousel/owl.carousel.js"></script>
 	<!--  Custom Theme JavaScript  -->
 	<script src="source/assets/js/custom.js"></script>
+
+    <script src="source/CallVideo/peer.js"></script>
+    <script src="source/CallVideo/peer.min.js"></script>
+    <script src="source/CallVideo/socket.io.js"></script>
+    <script src="source/CallVideo/main.js"></script>
 </body>
 
 

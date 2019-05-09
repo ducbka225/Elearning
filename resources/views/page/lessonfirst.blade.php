@@ -6,11 +6,41 @@
 		</div>
 		<!-- /header-title -->
 <!-- dashbord -->
+		<!-- dashbord -->
 		<div class="dashbord">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						
+						<ul>
+							<li><a href="student/info"><i class="fa fa-user-o" aria-hidden="true"></i></a></li>
+							<li><a href="/chat/{{$chitietcourse->id}}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+							<li>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+								<i class="fa fa-bell-o" aria-hidden="true"></i>
+								 <sup>2</sup>
+								</a>
+								<div class="setting dropdown-menu">
+									 <div class="setting-ul">
+									 	<ul>
+									 	@if($mid_test_result != 0)									<li><a href="/mid-test-result/{{$chitietcourse->id}}">Thi đầu kỳ</a></li> 
+									 	@else
+											<li><a href="/mid-test/{{$chitietcourse->id}}">Thi đầu kỳ</a></li> 
+										@endif
+										@if($end_test_result != 0)									<li><a href="/end-test-result/{{$chitietcourse->id}}">Thi cuối kỳ</a></li> 
+									 	@else
+											<li><a href="/end-test/{{$chitietcourse->id}}">Thi cuối kỳ</a></li> 
+										@endif
+										</ul>
+									 </div>
+								</div>
+							</li>
+							<li><a href="/chat/{{$chitietcourse->id}}" title="Chat trực tuyến"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
+							<li>
+								<a href="callvideo" title="Call video">
+									<i class="fa fa-phone" aria-hidden="true"></i>
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -52,7 +82,19 @@
 								<label style="margin-left: 20px">{{++$i}}</label>
 								</div>
 								<div class="upcommin-text">
-									<a href="{{route('lesson', $l->id)}}"><p>{{$l->name}}</p></a>
+									<p>
+										<a href="{{route('lesson', $l->id)}}">
+										{{$l->name}} 
+										</a>
+										<?php $id = $l->id; ?>
+										@if(in_array($id, $inputs))
+
+										<label href="#" style="margin-left: 20px">
+								          <img width="15px" src="source/assets/img/done.png">
+								        </label>
+										@endif 
+									</p>
+									
 									<span><i class="fa fa-clock-o" aria-hidden="true"></i> {{$l->created_at}}</span>
 								</div>
 								</div>
@@ -66,6 +108,7 @@
 		</div>
 		<!-- /.classroom-container -->
 	</section>
+	
 
 	<section class="discussion-contaniner">
 		<!-- .discussion-contaniner-->

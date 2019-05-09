@@ -30,7 +30,7 @@
 								<div class="price">
 									{{$c->price}} <span>$300</span>
 								</div>
-								<a href="#" class="ank5">Đăng Ký Học</a>
+								<a href="{{route('chitiet', $c->id)}}" class="ank5">Đăng Ký Học</a>
 							</div>
 						</div>
 				</div>

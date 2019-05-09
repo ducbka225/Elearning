@@ -8,6 +8,7 @@ use App\Category;
 use App\User;
 use Auth;
 use App\Chat;
+use App\Register;
 class ChatController extends Controller
 {
 	function __construct(){
@@ -17,7 +18,8 @@ class ChatController extends Controller
 
     public function getChat($course_id){
     	$id_user = Auth::User()->id;
-    	$user = User::where('id', '<>', $id_user)->get();
+    	$user = Register::where('id_course', $course_id)
+                        ->where('id_user', '<>', $id_user)->get();
     	$course = Course::where('id', $course_id)->first();
     	return view('page.chat.chat', compact('course', 'user'));
     }

@@ -19,10 +19,10 @@
             @foreach($user as $u)
             <div class="chat_list">
               <div class="chat_people">
-                <div class="chat_img"> <img src="source/assets/img/{{$u->avatar}}" alt="sunil"> </div>
+                <div class="chat_img"> <img src="source/assets/img/{{$u->user->avatar}}" alt="sunil"> </div>
                 <div class="chat_ib">
-                	<a href="/chatfriend/{{$u->id}}">
-                		<h5>{{$u->name}} <span class="chat_date">Dec 25</span></h5>
+                	<a href="/chatfriend/{{$u->user->id}}">
+                		<h5>{{$u->user->name}} <span class="chat_date">Dec 25</span></h5>
 	                 	<!--  <p>Test, which is a new approach to have all solutions 
 	                    astrology under one roof.</p> -->
                 	</a>

@@ -18,6 +18,9 @@ use App\Submit_Ex3;
 use App\Submit_Ex4;
 use App\Comment;
 use App\Re_comment;
+use App\Register;
+use App\Mid_Test;
+
 
 class TeacherController extends Controller
 {
@@ -30,7 +33,9 @@ class TeacherController extends Controller
     }
 
     public function getCourse(){
-    	$listCourse = Course::all();
+        $id_user = Auth::User()->id;
+        // dd($id_user);
+    	$listCourse = Course::where('id_user', $id_user)->get();
     	return view('teacher.pages.listcourse', compact('listCourse'));
     }
 
@@ -236,6 +241,60 @@ class TeacherController extends Controller
     public function getUser(){
         $student = User::all();
         return view('teacher.pages.liststudent', compact('student'));
+    }
+
+    public function getListStudent($id){
+        $student = Register::where('id_course', $id)->get();
+        return view('teacher.user.list_student', compact('student', 'id'));
+    }
+
+    public function getAddStudent($id){
+        $user = User::where('role', 0)->get();
+        $course = Course::find($id);
+        return view('teacher.user.addstudent', compact('course', 'user'));
+    }
+
+    public function postAddStudent($id, Request $req){
+        $register = new Register;
+        $register->totalprice = 0;
+        $register->payment = "teacher add";
+        $register->id_course = $id;
+        $register->id_user = $req->user;
+        $register->register_number = rand();
+        $register->save();
+        return redirect()->route('liststudent', [$id])->with('message','Them Thành Công!');
+    }
+
+    public function deleteStudent($course_id, $id){
+        $user = Register::where('id_course', $course_id)
+                        ->where('id_user', $id)->first();
+        $user->delete();
+        return redirect()->back()->with('message', 'Đã Xóa!');
+    }
+
+    public function getListMidTest($id){
+        $mid_test = Mid_test::where('id_course', $id)->get();
+        $course = Course::find($id);
+        return view('teacher.test.list_mid_test', compact('mid_test', 'course'));
+    }
+
+    public function getAddMidTest($id){
+        $course = Course::find($id);
+        return view('teacher.test.addmidtest', compact('course'));
+    }
+
+    public function postAddMidTest($id, Request $req){
+        $mid_test = new Mid_Test;
+        $mid_test->content = $req->content;
+        $mid_test->keya = $req->a;
+        $mid_test->keyb = $req->b;
+        $mid_test->keyc = $req->c;
+        $mid_test->keyd = $req->d;
+        $mid_test->keytrue = $req->keytrue;
+        $mid_test->id_course = $id;
+        $mid_test->id_user = Auth::User()->id;
+        $mid_test->save();
+        return redirect()->route('listmidtest', [$id])->with('message','Them Thành Công!');
     }
 
     // chấm bài

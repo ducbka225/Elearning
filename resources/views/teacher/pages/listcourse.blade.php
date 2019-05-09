@@ -33,13 +33,15 @@
                             <tr class="even gradeC" align="center">
                                 <td>{{$lc->course_number}}</td>
                                 <td>{{$lc->title}}</td>
-                                <td><img src="../source/assets/img/{{$lc->course_avatar}}" width="70px" alt=""></td>
+                                <td><img src="../source/assets/img/{{$lc->course_avatar}}" width="70px" height="45px" alt=""></td>
                                 <td>{{$lc->lenght}}</td>
                                 <td>{{number_format($lc->price)}} VND</td>
-                                <td class="center"></td>
+                                <td class="center"> <a href="/liststudent/{{$lc->id}}">Danh sách</a></td>
                                 <td class="center">
+                                    <a href="/chat/{{$lc->id}}" title="Chat trực tuyến"> Chat
+                                    </a> |
                                 	<a href="#"><i class="fa fa-trash-o  fa-fw"></i></a> | 
-                                	<a href="/admin/addcourse" title="Thêm Khóa Học">
+                                	<a href="/listmidtest/{{$lc->id}}" title="Thêm bài thi">
 							          <span class="glyphicon glyphicon-plus"></span>
 							        </a> | 
 							        <a href="/teacher/lesson/{{$lc->id}}">

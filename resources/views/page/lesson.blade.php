@@ -5,50 +5,7 @@
 			<h1>{{$chitietcourse->title}}</h1>
 		</div>
 		<!-- /header-title -->
-<!-- dashbord -->
-		<div class="dashbord">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<ul>
-							<li><a href="student/info"><i class="fa fa-user-o" aria-hidden="true"></i></a></li>
-							<li><a href="/chat/{{$chitietcourse->id}}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-							<li>
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-								<i class="fa fa-bell-o" aria-hidden="true"></i>
-								 <sup>2</sup>
-								</a>
-								<div class="setting dropdown-menu">
-									 <div class="setting-ul">
-									 	<ul>
-									 	@if($mid_test_result != 0)									<li><a href="/mid-test-result/{{$chitietcourse->id}}">Thi giữa kỳ</a></li> 
-									 	@else
-											<li><a href="/mid-test/{{$chitietcourse->id}}">Thi giữa kỳ</a></li> 
-										@endif
-											<li><a href="#">Thi cuối kỳ</a></li> 
-										</ul>
-									 </div>
-								</div>
-							</li>
-							<li><a href="chatroom" title="Chat trực tuyến"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
-							<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-								<i class="fa fa-cog" aria-hidden="true"></i></a>
-								<!-- .setting .dropdown-menu -->
-								 <div class="setting dropdown-menu">
-									 <div class="setting-ul">
-									 	<ul>										
-											
-											<li><a href="#">Results and Ranking</a></li> 
-										</ul>
-									 </div>
-								</div>
-								<!-- /.setting .dropdown-menu -->
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+
 	</header>
 	<section class="classroom-container">
 		<!-- .classroom-container -->
@@ -104,8 +61,6 @@
 									        </label>
 											@endif 
 										</p>
-
-									</a>
 									
 									<span><i class="fa fa-clock-o" aria-hidden="true"></i> {{$l->created_at}}</span>
 								</div>

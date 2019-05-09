@@ -1,8 +1,8 @@
 @extends('master')
 @section('content')
 	<div class="col-md-12">                                            
-        <h3 class="page-title">Bài kiểm tra đầu kỳ - {{$course->title}}</h3>
-        <form method="POST" action="/post-mid-test" accept-charset="UTF-8">
+        <h3 class="page-title">Bài kiểm tra cuối kỳ - {{$course->title}}</h3>
+        <form method="POST" action="/post-end-test" accept-charset="UTF-8">
             {!!csrf_field()!!}
             <input type="hidden" name="course" value="{{$course->id}}">
             <div class="panel panel-default">
@@ -14,34 +14,34 @@
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <?php $i = 1; ?>
-                            @foreach($mid_test as $mt)
+                            @foreach($end_test as $et)
                                 <div class="form-group">
                                     <strong>Question {{ $i }}.</strong>
 
-                                    <div class="code_snippet">{{$mt->content}} ?</div>
+                                    <div class="code_snippet">{{$et->content}} ?</div>
                                     
                                     <input
                                         type="hidden"
                                         name="questions[{{ $i }}]"
-                                        value="{{ $mt->id }}">
+                                        value="{{ $et->id }}">
                                     <label class="radio-inline">
-                                        <input type="radio" name="answers[{{ $mt->id }}]" value="1">
-                                        A. {{ $mt->keya }}
+                                        <input type="radio" name="answers[{{ $et->id }}]" value="1">
+                                        A. {{ $et->keya }}
                                     </label>
                                     <br>
                                     <label class="radio-inline">
-                                        <input type="radio" name="answers[{{ $mt->id }}]" value="2">
-                                       B. {{ $mt->keyb }}
+                                        <input type="radio" name="answers[{{ $et->id }}]" value="2">
+                                       B. {{ $et->keyb }}
                                     </label>
                                     <br>
                                     <label class="radio-inline">
-                                        <input type="radio" name="answers[{{ $mt->id }}]" value="3">
-                                        C. {{ $mt->keyc }}
+                                        <input type="radio" name="answers[{{ $et->id }}]" value="3">
+                                        C. {{ $et->keyc }}
                                     </label>
                                     <br>
                                     <label class="radio-inline">
-                                        <input type="radio" name="answers[{{ $mt->id }}]" value="4">
-                                        D. {{ $mt->keyd }}
+                                        <input type="radio" name="answers[{{ $et->id }}]" value="4">
+                                        D. {{ $et->keyd }}
                                     </label>
                                     <br>
                                    

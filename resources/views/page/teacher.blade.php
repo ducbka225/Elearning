@@ -15,7 +15,7 @@
 							<img src="source/assets/img/{{$t->avatar}}" >
 						</div>
 						<div class="teacher-text">
-							<a href="teacher-profile.html">
+							<a href="/teacher_profile/{{$t->id}}">
 								<h4>{{$t->name}}</h4>
 								<span>{{$t->exp}}</span>
 						 	</a>

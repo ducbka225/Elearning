@@ -47,12 +47,18 @@ Route::get('chi-tiet/{courseid}',[
 	'uses'=>'PageController@getChiTiet'
 ])->middleware('studentLogin');
 
-//test
+//midtest
 Route::get('mid-test/{course_id}', 'TestController@getMidTest')->middleware('studentLogin');
 Route::post('/post-mid-test', 'TestController@postMidTest');
 
 Route::get('mid-test-result/{course_id}', 'TestController@getMidTestResult')->name('mid-test-result')->middleware('studentLogin');
-//
+
+//endtest
+Route::get('end-test/{course_id}', 'TestController@getEndTest')->middleware('studentLogin');
+Route::post('/post-end-test', 'TestController@postEndTest');
+
+Route::get('end-test-result/{course_id}', 'TestController@getEndTestResult')->name('end-test-result')->middleware('studentLogin');
+//da dang ki khoa hoc
 
 Route::post('registercourse', 'AjaxController@postRegister');
 
@@ -86,6 +92,7 @@ Route::post('/student/naptien', 'PageController@postNapTien')->middleware('stude
 
 //list teacher
 Route::get('teacher', 'PageController@getTeacher');
+Route::get('teacher_profile/{id}','PageController@getTeacherInfo');
 
 // bài học đầu tiên
 Route::get('lessonfirst/{course_id}',[
@@ -174,6 +181,17 @@ Route::get('/teacher/logout','TeacherController@getLogout');
 
 //list course
 Route::get('/teacher/course', 'TeacherController@getCourse')->middleware('teacherLogin');
+
+//list test
+Route::get('/listmidtest/{id}', 'TeacherController@getListMidTest')->name('listmidtest');
+
+Route::get('/addmidtest/{id}', 'TeacherController@getAddMidTest');
+Route::post('/addmidtest/{id}', 'TeacherController@postAddMidTest');
+//list student
+Route::get('/liststudent/{id}', 'TeacherController@getListStudent')->name('liststudent');
+Route::get('/deletestudent/{course_id}/{id}','TeacherController@deleteStudent');
+Route::get('/addstudent/{id}', 'TeacherController@getAddStudent');
+Route::post('/addstudent/{id}', 'TeacherController@postAddStudent');
 
 //list Lesson by course
 Route::get('/teacher/lesson/{course_id}', 'TeacherController@getLesson')->name('listlesson')->middleware('teacherLogin');
