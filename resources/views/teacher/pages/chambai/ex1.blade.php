@@ -33,7 +33,7 @@
 		                        <thead>
 		                            <tr align="center">
 		                                <th>Học Sinh</th>
-		                                <th>Action</th>
+		                                <th>Hành Động</th>
 		                            </tr>
 		                        </thead>
 		                        <tbody>
@@ -46,7 +46,7 @@
 		                            
 		                        </tbody>
 		                    </table>
-		                    <button class="btn btn-danger btnBack" onclick="window.history.back();" > << Back </button>
+		                    <button class="btn btn-danger btnBack" onclick="window.history.back();" > << Quay Lại </button>
 						    <hr>
 						</div>					   
 				    </div>

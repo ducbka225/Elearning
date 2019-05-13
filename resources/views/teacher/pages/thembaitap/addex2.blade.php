@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Ex2
-                            <small>Add</small>
+                        <h1 class="page-header">Bài Nghe
+                            <small>Thêm</small>
                         </h1>
                         @if(Session::has('success'))
                         <div class="alert alert-success">{{Session::get('success')}}</div>
@@ -24,8 +24,8 @@
                             <input type="file" name="filename" value="upload">
                             <br>
                             <button type="submit" class="btn btn-primary">Thêm</button>
-                            <button type="reset" class="btn btn-danger">Reset</button>
-                            <button type="reset" class="btn btn-default"><a href="/teacher/baitap/{{$lesson_id}}">Back</a></button>
+                            <button type="reset" class="btn btn-danger">Đặt Lại</button>
+                            <button type="reset" class="btn btn-default"><a href="/teacher/baitap/{{$lesson_id}}">Quay Lại</a></button>
                         <form>
                     </div>
                 </div>

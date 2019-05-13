@@ -54,11 +54,11 @@
 							<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight">
 								<ul class="nav navbar-nav">
 									<li>
-										<a href="index">Home</a>										
+										<a href="index">Trang Chủ</a>										
 									</li>
 									
 									<li>
-										<a href="callvideo">Call Video</a>										
+										<a href="callvideo">Thi Thử</a>										
 									</li>
 									<li class="dropdown">
 										<a href="courses.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Khóa Học</a>

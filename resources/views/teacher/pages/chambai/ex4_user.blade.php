@@ -19,7 +19,7 @@
 						    	<li>
 						    		<label>{{++$tt}} . Đáp án của học sinh</label>
 
-						    		<p><a href="{{route('downloadfile', $jt->id)}}" class="btn btn-primary">Download Bài giải</a></p>
+						    		<p><a href="{{route('downloadfile', $jt->id)}}" class="btn btn-primary">Tải Về Bài giải</a></p>
 									<br>
 									<div style="margin-left: 20px; margin: center">
 										<form  method="POST" action="/teacher/chambai/ex4/{{$jt->id}}">
@@ -34,7 +34,7 @@
 						    	@endforeach
 
 						    </ul>
-						    <button class="btn btn-danger btnBack" onclick="window.history.back();" > << Back </button>
+						    <button class="btn btn-danger btnBack" onclick="window.history.back();" > << Quay Lại </button>
 						    <hr>
 						</div>
 

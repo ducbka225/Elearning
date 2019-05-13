@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Lesson
-                            <small>Add</small>
+                        <h1 class="page-header">Bài Học
+                            <small>Thêm</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -14,7 +14,7 @@
                         <form action="postaddlesson/{{$course_id}}" method="POST">
                         	{!!csrf_field()!!}
                             <div class="form-group">
-                                <label>Lesson Number</label>
+                                <label>Số Thứ Tự Bài Học</label>
                                 <input class="form-control" name="txtLessonNumber" placeholder="Please Enter LessonNumber" required />
                             </div>
                             <div class="form-group">
@@ -31,7 +31,7 @@
                             </div>
                             
                             <button type="submit" class="btn btn-primary">Thêm</button>
-                            <button type="reset" class="btn btn-danger">Reset</button>
+                            <button type="reset" class="btn btn-danger">Đặt Lại</button>
                         <form>
                     </div>
                 </div>

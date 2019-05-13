@@ -16,37 +16,37 @@
                 <a href="callvideo"><i class="fa fa-dashboard fa-fw"></i> Gọi Trực tuyến</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Chủ Đề<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/admin/listcategory">List Category</a>
+                        <a href="/admin/listcategory">Danh Sách Chủ Đề</a>
                     </li>
                     <li>
-                        <a href="admin/addcategory">Add Category</a>
+                        <a href="admin/addcategory">Thêm Chủ Đề</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-cube fa-fw"></i> Course<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-cube fa-fw"></i> Khóa Học<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/teacher/course">List Course</a>
+                        <a href="/teacher/course">Danh Sách Khóa Học</a>
                     </li>
                     <li>
-                        <a href="/admin/addcourse">Add Course</a>
+                        <a href="/admin/addcourse">Thêm Khóa Học</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-users fa-fw"></i> Người Dùng<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/admin/user">List User</a>
+                        <a href="/admin/user">Danh Sách Người Dùng</a>
                     </li>
                     <li>
-                        <a href="/amdin/adduser">Add User</a>
+                        <a href="/amdin/adduser">Thêm Người Dùng</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

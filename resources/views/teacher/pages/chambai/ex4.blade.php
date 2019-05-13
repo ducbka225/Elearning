@@ -18,7 +18,7 @@
 						    	@foreach($ex4 as $e2)
 						    	<li>
 						    		<label></label>
-						    		<a href="{{route('downloadfile', $e2->id)}}" class="btn btn-primary">Download Bài tập</a>
+						    		<a href="{{route('downloadfile', $e2->id)}}" class="btn btn-primary">Tải Về Bài tập</a>
 						    	</li>
 						    	@endforeach
 
@@ -31,7 +31,7 @@
 		                        <thead>
 		                            <tr align="center">
 		                                <th>Học Sinh</th>
-		                                <th>Action</th>
+		                                <th>Hành Động</th>
 		                            </tr>
 		                        </thead>
 		                        <tbody>

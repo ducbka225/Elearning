@@ -3,47 +3,14 @@
 <section class="for-box">
 		<!-- .for-box -->
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-3 wow fadeInLeft  animated">
-					<div class="clr1">
-						<div class="for-box-crecl">
-							<i class="fa fa-users" aria-hidden="true"></i>
-						</div>
-						<h2>
-							Over 40 million<br/> Students
-						</h2>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3 wow fadeInLeft  animated">
-					<div class="clr1">
-						<div class="for-box-crecl">
-							<i class="fa fa-bookmark" aria-hidden="true"></i>
-						</div>
-						<h2>
-							More Than 20,000<br/>courses
-						</h2>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3 wow fadeInRight  animated">
-					<div class="clr1">
-						<div class="for-box-crecl">
-							<i class="fa fa-phone" aria-hidden="true"></i>
-						</div>
-						<h2>
-							Free contact<br/> anytime
-						</h2>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3 wow fadeInRight  animated">
-					<div class="clr1">
-						<div class="for-box-crecl">
-							<i class="fa fa-line-chart" aria-hidden="true"></i>
-						</div>
-						<h2>
-							Learn at your pace<br/>on any device
-						</h2>
-					</div>
-				</div>
+		<div class="w3-content w3-display-container">
+			  <img class="mySlides" src="source/assets/img/nhat.jpg" height="300px" style="width:100%">
+			  <img class="mySlides" src="source/assets/img/courses-img2.jpg"  height="300px" style="width:100%">
+			  <img class="mySlides" src="source/assets/img/courses-img3.jpg" height="300px"style="width:100%">
+			  <img class="mySlides" src="source/assets/img/courses-img4.jpg" height="300px" style="width:100%">
+
+			  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+			  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 			</div>
 		</div>
 		<!-- /.for-box -->
@@ -126,7 +93,7 @@
 										<img src="source/assets/img/{{$t->avatar}}" width="50%" alt="instructor-img1" />
 									</div>
 									<h4>
-										<a href="#">
+										<a href="/teacher_profile/{{$t->id}}">
 									  	{{$t->name}}<br/>
 									  	<span>{{$t->email}}</span>
 									  </a>
@@ -146,5 +113,29 @@
 		</div>
 		<!-- /.instructor-container -->
 	</section>
+	<style>
+.mySlides {display:none;}
+</style>
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n)
+ {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n)
+ {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
 
 @endsection

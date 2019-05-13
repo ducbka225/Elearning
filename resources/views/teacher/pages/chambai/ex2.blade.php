@@ -33,7 +33,7 @@
 		                        <thead>
 		                            <tr align="center">
 		                                <th>Học Sinh</th>
-		                                <th>Action</th>
+		                                <th>Hành Động</th>
 		                            </tr>
 		                        </thead>
 		                        <tbody>

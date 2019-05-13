@@ -217,6 +217,7 @@ class PageController extends Controller
     }
 
     public function getTeacher(){
+        
 
         $teacher = User:: where('role', '1')->get();
         return view('page.teacher', compact('teacher'));

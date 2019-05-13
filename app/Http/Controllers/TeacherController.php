@@ -35,8 +35,13 @@ class TeacherController extends Controller
     public function getCourse(){
         $id_user = Auth::User()->id;
         // dd($id_user);
-    	$listCourse = Course::where('id_user', $id_user)->get();
-    	return view('teacher.pages.listcourse', compact('listCourse'));
+        if(Auth::User()->role == 2){
+            $listCourse = Course::all();
+        }
+        else{
+            $listCourse = Course::where('id_user', $id_user)->get();
+        }
+        return view('teacher.pages.listcourse', compact('listCourse'));
     }
 
     public function getLesson($course_id){

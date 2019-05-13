@@ -5,8 +5,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Course
-                        <small>Add</small>
+                    <h1 class="page-header">Khóa Học
+                        <small>Thêm</small>
                     </h1>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -22,11 +22,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Title</label>
+                            <label>Tên Khóa Học</label>
                             <input class="form-control" name="title" placeholder="Please Enter Title" required />
                         </div>
                         <div class="form-group">
-                            <label>Price</label>
+                            <label>Giá</label>
                             <input type="number" class="form-control" name="price" placeholder="Please Enter Price" required />
                         </div>
                         <div class="form-group">
@@ -38,11 +38,11 @@
                             <input  class="form-control"  name="lenght" required/>
                         </div>
                         <div class="form-group">
-                            <label>Avatar Khóa Học</label>
+                            <label>Ảnh Khóa Học</label>
                             <input type="file" name="course_avatar" required/>
                         </div>
                         <button type="submit" class="btn btn-success">Thêm</button>
-                        <button type="reset" class="btn btn-danger">Reset</button>
+                        <button type="reset" class="btn btn-danger">Đặt Lại</button>
                     <form>
                 </div>
             </div>

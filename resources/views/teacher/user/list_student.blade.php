@@ -19,9 +19,9 @@
                                 <th>ID</th>
                                 <th>Tên</th>
                                 <th>Email</th>
-                                <th>Address</th>
-                                <th>Avatar</th>
-                                <th>Action</th>
+                                <th>Địa Chỉ</th>
+                                <th>Ảnh Đại Diện</th>
+                                <th>Hành Động</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 <div class="header-title">
-	<h1>STUDENT PROFILE</h1>
+	<h1>Chỉnh Sửa Thông Tin</h1>
 </div>
 <section class="courses">
 		<!-- .courses -->

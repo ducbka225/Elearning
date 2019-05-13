@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Category
-                            <small>List</small>
+                        <h1 class="page-header">Chủ Đề
+                            <small>Danh Sách</small>
                         </h1>
                         @if(Session::has('message'))
                         <div class="alert alert-success">{{Session::get('message')}}</div>
@@ -17,8 +17,8 @@
                         <thead>
                             <tr align="center">
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Action</th>
+                                <th>Tên</th>
+                                <th>Hành Động</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,7 +26,7 @@
                             <tr class="odd gradeX" align="center">
                                 <td>{{$c->id}}</td>
                                 <td>{{$c->name}}</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/deletecategory/{{$c->id}}"> Delete</a></td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/deletecategory/{{$c->id}}"> Xóa</a></td>
                             </tr>
                            @endforeach
                         </tbody>

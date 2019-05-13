@@ -5,8 +5,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">User
-                        <small>Add</small>
+                    <h1 class="page-header">Người Dùng
+                        <small>Thêm</small>
                     </h1>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -14,7 +14,7 @@
                     <form action="/amdin/adduser" method="POST">
                     	{!!csrf_field()!!}
                         <div class="form-group">
-                            <label>Name</label>
+                            <label>Tên</label>
                             <input class="form-control" name="name" placeholder="Please Enter Name" />
                         </div>
                         <div class="form-group">
@@ -22,7 +22,7 @@
                             <input class="form-control" name="email" placeholder="Please Enter email" />
                         </div>
                         <div class="form-group">
-                            <label>PassWord</label>
+                            <label>Mật Khẩu</label>
                             <input type="password" class="form-control" name="password" placeholder="Please Enter Password" />
                         </div>
                         <div class="form-group">
@@ -39,7 +39,7 @@
 
                         </div>
                         <div class="form-group">
-                            <label>Role</label>
+                            <label>Quyền</label>
                             <label class="radio-inline">
                                 <input name="role" value="2" checked="" type="radio">Admin
                             </label>
@@ -48,7 +48,7 @@
                             </label>
                         </div>
                         <button type="submit" class="btn btn-success">Thêm</button>
-                        <button type="reset" class="btn btn-danger">Reset</button>
+                        <button type="reset" class="btn btn-danger">Đặt Lại</button>
                     <form>
                 </div>
             </div>

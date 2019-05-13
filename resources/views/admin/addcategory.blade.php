@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Category
-                            <small>Add</small>
+                        <h1 class="page-header">Chủ Đề
+                            <small>Thêm</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -14,12 +14,12 @@
                         <form action="/admin/addcategory" method="POST">
                         	{!!csrf_field()!!}
                             <div class="form-group">
-                                <label>Category Name</label>
+                                <label>Tên Chủ Đề</label>
                                 <input class="form-control" name="name" placeholder="Please Enter Category Name" />
                             </div>
                             
                             <button type="submit" class="btn btn-success">Thêm</button>
-                            <button type="reset" class="btn btn-danger">Reset</button>
+                            <button type="reset" class="btn btn-danger">Đặt Lại</button>
                         <form>
                     </div>
                 </div>

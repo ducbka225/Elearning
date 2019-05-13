@@ -18,7 +18,7 @@
                             <input class="form-control" value="{{$course->title}}" readonly />
                         </div>
                         <div class="form-group">
-                            <label>Content </label>
+                            <label>Câu Hỏi </label>
                             <input class="form-control" name="content"  placeholder="Nhập câu hỏi" />
                         </div>
                         <div class="form-group">
@@ -49,7 +49,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-success">Thêm</button>
-                        <button type="reset" class="btn btn-danger">Reset</button>
+                        <button type="reset" class="btn btn-danger">Đặt Lại</button>
                     <form>
                 </div>
             </div>

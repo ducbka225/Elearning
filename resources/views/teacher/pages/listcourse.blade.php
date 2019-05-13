@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Course
-                            <small>List</small>
+                        <h1 class="page-header">Khóa Học
+                            <small>Danh Sách</small>
                         </h1>
                         @if(Session::has('message'))
                         <div class="alert alert-success">{{Session::get('message')}}</div>
@@ -24,7 +24,7 @@
                                 <th>Ảnh</th>
                                 <th>Thời Lượng</th>
                                 <th>Giá</th>
-                                <th>Học viên Đk</th>
+                                <th>Học viên Đăng kí</th>
                                 <th>Hành động</th>
                             </tr>
                         </thead>

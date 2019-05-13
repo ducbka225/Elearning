@@ -47,7 +47,7 @@
 						    	@endforeach
 
 						    </ul>
-						    <button class="btn btn-primary btnBack" onclick="window.history.back();" > << Back </button>
+						    <button class="btn btn-primary btnBack" onclick="window.history.back();" > << Trở Lại </button>
 						    <hr>
 						</div>
 

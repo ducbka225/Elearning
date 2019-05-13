@@ -28,7 +28,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-success">Thêm</button>
-                        <button type="reset" class="btn btn-danger">Reset</button>
+                        <button type="reset" class="btn btn-danger">Đặt Lại</button>
                     <form>
                 </div>
             </div>

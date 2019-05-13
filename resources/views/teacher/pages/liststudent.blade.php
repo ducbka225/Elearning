@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">User
-                            <small>List</small>
+                        <h1 class="page-header">Học Sinh
+                            <small>Danh Sách</small>
                         </h1>
                         @if(Session::has('message'))
                         <div class="alert alert-success">{{Session::get('message')}}</div>
@@ -19,10 +19,10 @@
                                 <th>ID</th>
                                 <th>Tên</th>
                                 <th>Email</th>
-                                <th>Address</th>
-                                <th>Avatar</th>
-                                <th>Role</th>
-                                <th>Action</th>
+                                <th>Địa Chỉ</th>
+                                <th>Ảnh Đại Diện</th>
+                                <th>Quyền</th>
+                                <th>Hành Động</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,7 +43,7 @@
                                     @endif
                                     
                                 </td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/deleteuser/{{$st->id}}"> Delete</a></td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/deleteuser/{{$st->id}}"> Xóa</a></td>
 
                             </tr>
                             @endforeach

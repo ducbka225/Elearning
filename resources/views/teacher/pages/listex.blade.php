@@ -79,7 +79,7 @@
 						    		<label>{{$e4->file}}</label>
 						    		<hr>
 						    		<a href="/teacher/themex4/{{$lesson_id}}">
-						              <button type="button" class="btn btn-primary">Download</button>
+						              <button type="button" class="btn btn-primary">Tải Về</button>
 						            </a>
 						    	</li>
 						    	@endforeach
